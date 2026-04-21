@@ -2,18 +2,41 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 
-import type { ICard, ICardPort } from '@/types'
+import type { ICardBase, ICard, ICardPort } from '@/types'
+import { CardStatus } from '@/types/card'
 import { START_CARD_ID } from '@/game-core/constants'
 import cardsJson from './cards.json'
 
-export const useCardStore = defineStore('cards', () => {
-  const cards = ref<Map<string, ICard>>(
-    new Map((cardsJson as ICard[]).map(card => [card.id, card] as [string, ICard]))
+function createCard(base: ICardBase): ICard {
+  return {
+    ...base,
+    status: base.id === START_CARD_ID ? CardStatus.Placed : CardStatus.Deck,
+    owner: null,
+    rotation: false,
+  }
+}
+
+function buildInitialCards(): Map<string, ICard> {
+  return new Map(
+    (cardsJson as ICardBase[]).map(base => [base.id, createCard(base)])
   )
-  const cardIds = computed(() => Array.from(cards.value.keys()))
-  const playableCardIds = computed(() => cardIds.value.filter(id => id !== START_CARD_ID))
+}
+
+export const useCardStore = defineStore('cards', () => {
+  const cards = ref<Map<string, ICard>>(buildInitialCards())
   const selectedCardId = ref<string | null>(null)
 
+  const cardIds = computed(() => Array.from(cards.value.keys()))
+  const playableCardIds = computed(() => cardIds.value.filter(id => id !== START_CARD_ID))
+
+  function getRandomCard(userId: string): void {
+    const deckCards = Array.from(cards.value.values()).filter(card => card.status === CardStatus.Deck)
+    if (deckCards.length === 0) return
+    const randomCard = deckCards[Math.floor(Math.random() * deckCards.length)]
+    if (!randomCard) return
+    randomCard.status = CardStatus.Hand
+    randomCard.owner = userId
+  }
 
   function getCardById(id: string): ICard | undefined {
     return cards.value.get(id)
@@ -29,7 +52,7 @@ export const useCardStore = defineStore('cards', () => {
     }
     const card = cards.value.get(id)
     if (card) {
-      card.user = userId
+      card.status = CardStatus.Placed
     }
   }
 
@@ -37,12 +60,12 @@ export const useCardStore = defineStore('cards', () => {
     selectedCardId.value = null
   }
 
-  function getPortsByCardID(id: string) {
+  function getPortsByCardID(id: string) : (ICardPort | undefined)[] {
     const card = getCardById(id)
     return card ? card.ports : []
   }
 
-  function getOutPortsByCardIDAndPortIndex(id: string, portIndex: number) {
+  function getOutPortsByCardIDAndPortIndex(id: string, portIndex: number): (ICardPort | undefined)[] | undefined {
     const card = getCardById(id)
     if (!card) return undefined
     const ports = card.ports
@@ -68,6 +91,7 @@ export const useCardStore = defineStore('cards', () => {
     markCardAsPlaced,
     clearSelection,
     getPortsByCardID,
-    getOutPortsByCardIDAndPortIndex
+    getOutPortsByCardIDAndPortIndex,
+    getRandomCard,
   }
 })
