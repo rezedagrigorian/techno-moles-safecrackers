@@ -1,10 +1,13 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
+
 import BoardGrid from '../components/board/BoardGrid.vue'
 import CardHand from '../components/cards/CardHand.vue'
 import { useCardStore } from '../stores/cardStore'
+import { useUserStore } from '../stores/userStore'
 
 const cardStore = useCardStore()
-const userId = 'player1'
+const { currentUserId: userId } = storeToRefs(useUserStore())
 </script>
 
 <template>

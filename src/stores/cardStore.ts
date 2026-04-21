@@ -7,26 +7,27 @@ import { CardStatus } from '@/types/card'
 import { START_CARD_ID } from '@/game-core/constants'
 import cardsJson from './cards.json'
 
+function createCard(base: ICardBase): ICard {
+  return {
+    ...base,
+    status: base.id === START_CARD_ID ? CardStatus.Placed : CardStatus.Deck,
+    owner: null,
+    rotation: false,
+  }
+}
+
+function buildInitialCards(): Map<string, ICard> {
+  return new Map(
+    (cardsJson as ICardBase[]).map(base => [base.id, createCard(base)])
+  )
+}
+
 export const useCardStore = defineStore('cards', () => {
-  const cards = ref<Map<string, ICard>>(new Map())
+  const cards = ref<Map<string, ICard>>(buildInitialCards())
+  const selectedCardId = ref<string | null>(null)
 
   const cardIds = computed(() => Array.from(cards.value.keys()))
   const playableCardIds = computed(() => cardIds.value.filter(id => id !== START_CARD_ID))
-  const selectedCardId = ref<string | null>(null)
-
-  function init(): void {
-    const bareCards = cardsJson as ICardBase[]
-    cards.value = new Map(
-      bareCards.map(card => [card.id, {
-        ...card,
-        status: CardStatus.Deck,
-        owner: null,
-        rotation: false
-      } as ICard])
-    )
-  }
-
-  init()
 
   function getRandomCard(userId: string): void {
     const deckCards = Array.from(cards.value.values()).filter(card => card.status === CardStatus.Deck)
@@ -91,6 +92,6 @@ export const useCardStore = defineStore('cards', () => {
     clearSelection,
     getPortsByCardID,
     getOutPortsByCardIDAndPortIndex,
-    getRandomCard
+    getRandomCard,
   }
 })
