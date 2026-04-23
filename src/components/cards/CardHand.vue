@@ -15,6 +15,14 @@ const { selectedCardId, cards } = storeToRefs(cardStore)
 const playerCards = computed(() =>
   Array.from(cards.value.values()).filter(card =>  card.owner === props.userId)
 )
+
+function handleCardClick(cardId: string, event: MouseEvent) {
+  if (selectedCardId.value === cardId) {
+    cardStore.clearSelection()
+  } else {
+    cardStore.selectCard(cardId, event.clientX, event.clientY)
+  }
+}
 </script>
 
 <template>
@@ -31,7 +39,7 @@ const playerCards = computed(() =>
         :key="card.id"
         :class="{ 'ring-2 ring-blue-500 ring-offset-2': selectedCardId === card.id,
                   'opacity-50 pointer-events-none': card.status === CardStatus.Placed }"
-        @click="cardStore.selectCard(card.id)"
+        @click="handleCardClick(card.id, $event)"
       >
         <Card
           :card-id="card.id"
