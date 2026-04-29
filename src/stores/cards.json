@@ -1,125 +1,5 @@
 [
   {
-    "id": "9bd8b149-9988-46ca-823d-e78c8a4135c5",
-    "ports": [
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 1, "isTroll": false, "isGold": true },
-      { "group": 2, "isTroll": true, "isGold": false },
-      null
-    ],
-    "isGolden": false
-  },
-  {
-    "id": "f56a786c-1c01-4c85-be6d-dd7347a7f73b",
-    "ports": [
-      { "group": 3, "isTroll": false, "isGold": true },
-      null,
-      { "group": 3, "isTroll": false, "isGold": true },
-      null
-    ],
-    "isGolden": true
-  },
-  {
-    "id": "4cdaca13-7ca4-48bc-9d37-aab3b7eb00e7",
-    "ports": [
-      null,
-      { "group": 1, "isTroll": true, "isGold": false },
-      { "group": 1, "isTroll": true, "isGold": false },
-      { "group": 2, "isTroll": false, "isGold": false }
-    ],
-    "isGolden": false
-  },
-  {
-    "id": "6aee5eb5-7a9a-4d36-9d87-221de678f1f1",
-    "ports": [
-      { "group": 2, "isTroll": false, "isGold": false },
-      { "group": 2, "isTroll": false, "isGold": false },
-      { "group": 2, "isTroll": false, "isGold": false },
-      { "group": 2, "isTroll": false, "isGold": false }
-    ],
-    "isGolden": false
-  },
-  {
-    "id": "544cbca6-131a-48c5-9d7f-014e3fbd7afb",
-    "ports": [
-      { "group": 2, "isTroll": false, "isGold": false },
-      { "group": 2, "isTroll": false, "isGold": false },
-      { "group": 2, "isTroll": false, "isGold": false },
-      { "group": 2, "isTroll": false, "isGold": false }
-    ],
-    "isGolden": false
-  },
-  {
-    "id": "88e1af39-04f7-4329-9b8e-130cc210171d",
-    "ports": [
-      { "group": 2, "isTroll": false, "isGold": false },
-      { "group": 2, "isTroll": false, "isGold": false },
-      { "group": 2, "isTroll": false, "isGold": false },
-      { "group": 2, "isTroll": false, "isGold": false }
-    ],
-    "isGolden": false
-  },
-  {
-    "id": "33686672-4250-4a54-990c-a4de4e82853d",
-    "ports": [
-      { "group": 1, "isTroll": true, "isGold": true },
-      null,
-      null,
-      { "group": 1, "isTroll": true, "isGold": true }
-    ],
-    "isGolden": true
-  },
-  {
-    "id": "ddb1ca7e-c60a-455a-b628-b942885481b0",
-    "ports": [
-      null,
-      { "group": 3, "isTroll": false, "isGold": false },
-      { "group": 3, "isTroll": false, "isGold": true },
-      { "group": 1, "isTroll": false, "isGold": false }
-    ],
-    "isGolden": false
-  },
-  {
-    "id": "c11a4776-8f3b-409b-a3ea-fa60c9a27d13",
-    "ports": [
-      { "group": 2, "isTroll": true, "isGold": false },
-      { "group": 2, "isTroll": true, "isGold": false },
-      null,
-      null
-    ],
-    "isGolden": false
-  },
-  {
-    "id": "900f6265-f9d6-4e67-9193-b58449cb7354",
-    "ports": [
-      { "group": 1, "isTroll": false, "isGold": true },
-      { "group": 1, "isTroll": false, "isGold": true },
-      { "group": 1, "isTroll": false, "isGold": true },
-      null
-    ],
-    "isGolden": true
-  },
-  {
-    "id": "d95376ce-37a1-4229-8dd4-a60a4cb93323",
-    "ports": [
-      null,
-      null,
-      { "group": 3, "isTroll": true, "isGold": false },
-      { "group": 3, "isTroll": true, "isGold": false }
-    ],
-    "isGolden": false
-  },
-  {
-    "id": "b7b71187-f18f-475b-843f-7de5b4e10eab",
-    "ports": [
-      { "group": 2, "isTroll": false, "isGold": true },
-      { "group": 3, "isTroll": true, "isGold": false },
-      { "group": 2, "isTroll": false, "isGold": true },
-      { "group": 3, "isTroll": true, "isGold": false }
-    ],
-    "isGolden": true
-  },
-  {
     "id": "63782181-d535-470e-90b2-44913a553332",
     "ports": [
       { "group": 1, "isTroll": false, "isGold": false },
@@ -130,12 +10,306 @@
     "isGolden": false
   },
   {
-    "id":"37a33146-0a31-489a-80a5-97105743058e",
+    "id": "37a33146-0a31-489a-80a5-97105743058e",
+    "ports": [ 
+      null,
+      { "group": 1, "isTroll": false, "isGold": false },
+      null,
+      { "group": 1, "isTroll": false, "isGold": false },
+      null
+    ],
+    "isGolden": false
+  },
+  {
+    "id": "47a33146-0a31-489a-80a5-97105743058e",
+    "ports": [ 
+      null,
+      { "group": 1, "isTroll": false, "isGold": false },
+      null,
+      { "group": 1, "isTroll": false, "isGold": false },
+      null
+    ],
+    "isGolden": false
+  },
+  {
+    "id": "57a33146-0a31-489a-80a5-97105743058e",
+    "ports": [ 
+      null,
+      { "group": 1, "isTroll": false, "isGold": false },
+      null,
+      { "group": 1, "isTroll": false, "isGold": false },
+      null
+    ],
+    "isGolden": false
+  },
+  {
+    "id": "67a33146-0a31-489a-80a5-97105743058e",
+    "ports": [ 
+      { "group": 1, "isTroll": false, "isGold": false },
+      null,
+      { "group": 1, "isTroll": false, "isGold": false },
+      null
+    ],
+    "isGolden": false
+  },
+  {
+    "id": "77a33146-0a31-489a-80a5-97105743058e",
+    "ports": [ 
+      { "group": 1, "isTroll": false, "isGold": false },
+      null,
+      { "group": 1, "isTroll": false, "isGold": false },
+      null
+    ],
+    "isGolden": false
+  },
+  {
+    "id": "87a33146-0a31-489a-80a5-97105743058e",
+    "ports": [ 
+      { "group": 1, "isTroll": false, "isGold": false },
+      null,
+      { "group": 1, "isTroll": false, "isGold": false },
+      null
+    ],
+    "isGolden": false
+  },
+  {
+    "id": "97a33146-0a31-489a-80a5-97105743058e",
+    "ports": [ 
+      { "group": 1, "isTroll": false, "isGold": false },
+      null,
+      { "group": 1, "isTroll": false, "isGold": false },
+      null
+    ],
+    "isGolden": false
+  },
+  {
+    "id": "107a33146-0a31-489a-80a5-97105743058e",
+    "ports": [ 
+      null,
+      { "group": 1, "isTroll": false, "isGold": false },
+      { "group": 1, "isTroll": false, "isGold": false },
+      null
+    ],
+    "isGolden": false
+  },
+  {
+    "id": "117a33146-0a31-489a-80a5-97105743058e",
+    "ports": [
+      null,
+      { "group": 1, "isTroll": false, "isGold": false },
+      { "group": 1, "isTroll": false, "isGold": false },
+      null
+    ],
+    "isGolden": false
+  },
+  {
+    "id": "127a33146-0a31-489a-80a5-97105743058e",
+    "ports": [
+      { "group": 1, "isTroll": false, "isGold": false },
+      { "group": 1, "isTroll": false, "isGold": false },
+      null,
+      null
+    ],
+    "isGolden": false
+  },
+  {
+    "id": "137a33146-0a31-489a-80a5-97105743058e",
+    "ports": [
+      { "group": 1, "isTroll": false, "isGold": false },
+      { "group": 1, "isTroll": false, "isGold": false },
+      null,
+      null
+    ],
+    "isGolden": false
+  },
+  {
+    "id": "147a33146-0a31-489a-80a5-97105743058e",
+    "ports": [
+      null,
+      { "group": 1, "isTroll": false, "isGold": false },
+      { "group": 2, "isTroll": false, "isGold": false },
+      { "group": 1, "isTroll": false, "isGold": false }
+    ],
+    "isGolden": false
+  },
+  {
+    "id": "157a33146-0a31-489a-80a5-97105743058e",
+    "ports": [
+      { "group": 1, "isTroll": false, "isGold": false },
+      { "group": 2, "isTroll": false, "isGold": false },
+      { "group": 2, "isTroll": false, "isGold": false },
+      { "group": 1, "isTroll": false, "isGold": false }
+    ],
+    "isGolden": false
+  },
+  {
+    "id": "167a33146-0a31-489a-80a5-97105743058e",
+    "ports": [
+      null,
+      { "group": 1, "isTroll": false, "isGold": false },
+      { "group": 1, "isTroll": false, "isGold": false },
+      { "group": 2, "isTroll": false, "isGold": false }
+    ],
+    "isGolden": false
+  },
+  {
+    "id": "177a33146-0a31-489a-80a5-97105743058e",
+    "ports": [
+      { "group": 1, "isTroll": false, "isGold": false },
+      null,
+      { "group": 2, "isTroll": false, "isGold": false },
+      { "group": 1, "isTroll": false, "isGold": false }
+    ],
+    "isGolden": false
+  },
+  {
+    "id": "187a33146-0a31-489a-80a5-97105743058e",
+    "ports": [
+      null,
+      { "group": 1, "isTroll": false, "isGold": false },
+      { "group": 2, "isTroll": false, "isGold": false },
+      { "group": 2, "isTroll": false, "isGold": false }
+    ],
+    "isGolden": false
+  },
+  {
+    "id": "197a33146-0a31-489a-80a5-97105743058e",
     "ports": [
       { "group": 1, "isTroll": false, "isGold": false },
       { "group": 1, "isTroll": false, "isGold": false },
       { "group": 2, "isTroll": false, "isGold": false },
       null
+    ],
+    "isGolden": false
+  },
+  {
+    "id": "207a33146-0a31-489a-80a5-97105743058e",
+    "ports": [
+      { "group": 1, "isTroll": false, "isGold": false },
+      { "group": 1, "isTroll": true, "isGold": false },
+      { "group": 1, "isTroll": false, "isGold": false },
+      { "group": 1, "isTroll": false, "isGold": false }
+    ],
+    "isGolden": false
+  },
+  {
+    "id": "217a33146-0a31-489a-80a5-97105743058e",
+    "ports": [
+      { "group": 1, "isTroll": true, "isGold": false },
+      null,
+      { "group": 1, "isTroll": false, "isGold": false },
+      { "group": 1, "isTroll": false, "isGold": false }
+    ],
+    "isGolden": false
+  },
+  {
+    "id": "227a33146-0a31-489a-80a5-97105743058e",
+    "ports": [
+      { "group": 1, "isTroll": false, "isGold": false },
+      { "group": 1, "isTroll": false, "isGold": false },
+      null,
+      { "group": 1, "isTroll": true, "isGold": false }
+    ],
+    "isGolden": false
+  },
+  {
+    "id": "237a33146-0a31-489a-80a5-97105743058e",
+    "ports": [
+      { "group": 1, "isTroll": false, "isGold": false },
+      { "group": 1, "isTroll": false, "isGold": false },
+      { "group": 1, "isTroll": false, "isGold": false },
+      { "group": 2, "isTroll": false, "isGold": true }
+    ],
+    "isGolden": false
+  },
+  {
+    "id": "247a33146-0a31-489a-80a5-97105743058e",
+    "ports": [
+      { "group": 1, "isTroll": false, "isGold": false },
+      { "group": 2, "isTroll": false, "isGold": true },
+      { "group": 1, "isTroll": false, "isGold": false },
+      null
+    ],
+    "isGolden": false
+  },
+  {
+    "id": "257a33146-0a31-489a-80a5-97105743058e",
+    "ports": [
+      { "group": 1, "isTroll": false, "isGold": false },
+      { "group": 1, "isTroll": false, "isGold": false },
+      { "group": 2, "isTroll": false, "isGold": true },
+      { "group": 2, "isTroll": false, "isGold": false }
+    ],
+    "isGolden": false
+  },
+  {
+    "id": "267a33146-0a31-489a-80a5-97105743058e",
+    "ports": [
+      { "group": 1, "isTroll": false, "isGold": true },
+      { "group": 2, "isTroll": false, "isGold": false },
+      { "group": 2, "isTroll": false, "isGold": false },
+      { "group": 2, "isTroll": false, "isGold": false }
+    ],
+    "isGolden": false
+  },
+  {
+    "id": "277a33146-0a31-489a-80a5-97105743058e",
+    "ports": [
+      { "group": 1, "isTroll": false, "isGold": false },
+      { "group": 1, "isTroll": false, "isGold": false },
+      { "group": 1, "isTroll": false, "isGold": false },
+      { "group": 1, "isTroll": false, "isGold": false, "door": 2 }
+    ],
+    "isGolden": false
+  },
+  {
+    "id": "287a33146-0a31-489a-80a5-97105743058e",
+    "ports": [
+      { "group": 1, "isTroll": false, "isGold": false, "door": 2 },
+      null,
+      { "group": 1, "isTroll": false, "isGold": false },
+      { "group": 1, "isTroll": false, "isGold": false }
+
+    ],
+    "isGolden": false
+  },
+  {
+    "id": "297a33146-0a31-489a-80a5-97105743058e",
+    "ports": [
+      null,
+      { "group": 1, "isTroll": false, "isGold": false },
+      { "group": 1, "isTroll": false, "isGold": false },
+      { "group": 1, "isTroll": false, "isGold": false, "door": 2 }
+    ],
+    "isGolden": false
+  },
+  {
+    "id": "307a33146-0a31-489a-80a5-97105743058e",
+    "ports": [
+      { "group": 1, "isTroll": false, "isGold": false, "door": 1 },
+      { "group": 1, "isTroll": false, "isGold": false },
+      { "group": 1, "isTroll": false, "isGold": false },
+      { "group": 1, "isTroll": false, "isGold": false}
+    ],
+    "isGolden": false
+  },
+  {
+    "id": "317a33146-0a31-489a-80a5-97105743058e",
+    "ports": [
+      { "group": 1, "isTroll": false, "isGold": false },
+      null,
+      { "group": 1, "isTroll": false, "isGold": false },
+      { "group": 1, "isTroll": false, "isGold": false, "door": 1}
+    ],
+    "isGolden": false
+  },
+  {
+    "id": "327a33146-0a31-489a-80a5-97105743058e",
+    "ports": [
+      { "group": 1, "isTroll": false, "isGold": false },
+      { "group": 1, "isTroll": false, "isGold": false },
+      null,
+      { "group": 1, "isTroll": false, "isGold": false, "door": 1}
     ],
     "isGolden": false
   }

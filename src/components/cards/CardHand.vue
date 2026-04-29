@@ -6,14 +6,14 @@ import { CardStatus } from '@/types/card'
 import Card from './Card.vue'
 
 const props = defineProps<{
-  userId: string
+  playerId: string
 }>()
 
 const cardStore = useCardStore()
 const { selectedCardId, cards } = storeToRefs(cardStore)
 
 const playerCards = computed(() =>
-  Array.from(cards.value.values()).filter(card =>  card.owner === props.userId)
+  Array.from(cards.value.values()).filter(card =>  card.owner === props.playerId)
 )
 
 function handleCardClick(cardId: string, event: MouseEvent) {
@@ -27,7 +27,7 @@ function handleCardClick(cardId: string, event: MouseEvent) {
 
 <template>
   <aside
-    class="bg-slate-100 rounded-lg border border-neutral-200 p-3"
+    class="bg-slate-100 rounded-lg border border-neutral-200 p-3 overflow-y-auto max-h-[500px]"
     aria-label="cards on the board"
   >
     <div

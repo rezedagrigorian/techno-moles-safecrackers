@@ -1,7 +1,9 @@
+import type { PlayerColor } from './player'
 export interface ICardPort {
   group: number
   isTroll: boolean
-  isGold: boolean
+  isGold: boolean,
+  door?: PlayerColor
 }
 
 export type ICardRotation = boolean

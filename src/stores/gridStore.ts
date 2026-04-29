@@ -163,8 +163,8 @@ export const useGridStore = defineStore('grid', () => {
     return false
   }
 
-  function assignCardToCell(cellId: string, cardId: string, userId: string) {
-    if (!userId.trim()) {
+  function assignCardToCell(cellId: string, cardId: string, playerId: string) {
+    if (!playerId.trim()) {
       return
     }
     const cell = getCellById(cellId)
@@ -180,7 +180,7 @@ export const useGridStore = defineStore('grid', () => {
 
     if (!cell.card) {
       cell.card = cardId
-      cardStore.markCardAsPlaced(cardId, userId)
+      cardStore.markCardAsPlaced(cardId, playerId)
       cardStore.clearSelection()
     }
   }
