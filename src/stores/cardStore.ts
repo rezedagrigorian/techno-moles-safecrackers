@@ -60,6 +60,19 @@ export const useCardStore = defineStore('cards', () => {
     selectedCardId.value = null
   }
 
+  function rotateSelectedCard() {
+    if (!selectedCardId.value) return
+    const card = cards.value.get(selectedCardId.value)
+    if (!card) return
+  
+    cards.value.set(selectedCardId.value, {
+      ...card,
+      rotation: !card.rotation,
+      ports: [card.ports[2], card.ports[3], card.ports[0], card.ports[1]],
+    })
+  }
+  
+
   function getPortsByCardID(id: string) : (ICardPort | undefined)[] {
     const card = getCardById(id)
     return card ? card.ports : []
@@ -90,6 +103,7 @@ export const useCardStore = defineStore('cards', () => {
     selectCard,
     markCardAsPlaced,
     clearSelection,
+    rotateSelectedCard,
     getPortsByCardID,
     getOutPortsByCardIDAndPortIndex,
     getRandomCard,

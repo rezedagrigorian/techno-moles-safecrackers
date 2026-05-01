@@ -9,6 +9,7 @@ const { selectedCardId } = storeToRefs(cardStore)
 
 const selectionX = ref(-1)
 const selectionY = ref(-1)
+const wheelCooldown = ref(false)
 
 function onMouseMove(event: MouseEvent) {
   selectionX.value = event.clientX
@@ -19,16 +20,29 @@ function onKeyDown(event: KeyboardEvent) {
   if (event.key === 'Escape') {
     cardStore.clearSelection()
   }
+  if (event.key === 'r' || event.key === 'R') {
+    cardStore.rotateSelectedCard()
+  }
+}
+
+function onWheel(event: WheelEvent) {
+  event.preventDefault()
+  if (wheelCooldown.value) return
+  wheelCooldown.value = true
+  setTimeout(() => { wheelCooldown.value = false }, 900)
+  cardStore.rotateSelectedCard()
 }
 
 onMounted(() => {
   document.addEventListener('mousemove', onMouseMove)
   document.addEventListener('keydown', onKeyDown)
+  document.addEventListener('wheel', onWheel, { passive: false })
 })
 
 onUnmounted(() => {
   document.removeEventListener('mousemove', onMouseMove)
   document.removeEventListener('keydown', onKeyDown)
+  document.removeEventListener('wheel', onWheel)
 })
 </script>
 
