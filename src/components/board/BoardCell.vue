@@ -5,7 +5,7 @@ import { storeToRefs } from 'pinia'
 
 import { useCardStore } from '@/stores/cardStore'
 import { useGridStore } from '@/stores/gridStore'
-import { useUserStore } from '@/stores/userStore'
+import { usePlayerStore } from '@/stores/playerStore'
 
 import Card from '../cards/Card.vue'
 
@@ -13,11 +13,11 @@ const props = defineProps<IGridCell>()
 
 const { assignCardToCell } = useGridStore()
 const cardStore = useCardStore()
-const { currentUserId } = storeToRefs(useUserStore())
+const { currentPlayerId } = storeToRefs(usePlayerStore())
 
 function handleClick() {
   if (props.card || !cardStore.selectedCardId) { return }
-  assignCardToCell(props.id, cardStore.selectedCardId, currentUserId.value)
+  assignCardToCell(props.id, cardStore.selectedCardId, currentPlayerId.value)
 }
 </script>
 

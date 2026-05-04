@@ -29,13 +29,13 @@ export const useCardStore = defineStore('cards', () => {
   const cardIds = computed(() => Array.from(cards.value.keys()))
   const playableCardIds = computed(() => cardIds.value.filter(id => id !== START_CARD_ID))
 
-  function getRandomCard(userId: string): void {
+  function getRandomCard(playerId: string): void {
     const deckCards = Array.from(cards.value.values()).filter(card => card.status === CardStatus.Deck)
     if (deckCards.length === 0) return
     const randomCard = deckCards[Math.floor(Math.random() * deckCards.length)]
     if (!randomCard) return
     randomCard.status = CardStatus.Hand
-    randomCard.owner = userId
+    randomCard.owner = playerId
   }
 
   function getCardById(id: string): ICard | undefined {
@@ -46,8 +46,8 @@ export const useCardStore = defineStore('cards', () => {
     selectedCardId.value = id
   }
 
-  function markCardAsPlaced(id: string, userId: string) {
-    if (!userId.trim()) {
+  function markCardAsPlaced(id: string, playerId: string) {
+    if (!playerId.trim()) {
       return
     }
     const card = cards.value.get(id)
@@ -59,6 +59,19 @@ export const useCardStore = defineStore('cards', () => {
   function clearSelection() {
     selectedCardId.value = null
   }
+
+  function rotateSelectedCard() {
+    if (!selectedCardId.value) return
+    const card = cards.value.get(selectedCardId.value)
+    if (!card) return
+  
+    cards.value.set(selectedCardId.value, {
+      ...card,
+      rotation: !card.rotation,
+      ports: [card.ports[2], card.ports[3], card.ports[0], card.ports[1]],
+    })
+  }
+  
 
   function getPortsByCardID(id: string) : (ICardPort | undefined)[] {
     const card = getCardById(id)
@@ -90,6 +103,7 @@ export const useCardStore = defineStore('cards', () => {
     selectCard,
     markCardAsPlaced,
     clearSelection,
+    rotateSelectedCard,
     getPortsByCardID,
     getOutPortsByCardIDAndPortIndex,
     getRandomCard,

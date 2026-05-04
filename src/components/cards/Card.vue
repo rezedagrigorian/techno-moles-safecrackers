@@ -12,6 +12,11 @@ const props = defineProps<{
 const { getCardById } = useCardStore()
 const card = computed<ICard | undefined>(() => getCardById(props.cardId))
 
+const DOOR_COLOR: Record<number, string> = {
+  1: 'green',
+  2: 'blue',
+}
+
 const PORT_GROUP_CLASS: Record<number, string> = {
   1: 'bg-red-500',
   2: 'bg-green-500',
@@ -28,6 +33,7 @@ const PORT_POSITIONS = [
   'right-[-8px] top-1/2 -translate-y-1/2',     // 2 - справа по центру
   'bottom-[-8px] left-1/2 -translate-x-1/2',   // 3 - снизу по центру
 ]
+
 
 </script>
 
@@ -54,14 +60,15 @@ const PORT_POSITIONS = [
         :class="portGroupClass(port.group)"
         :style="{
           border: port.isTroll ? '1px dashed black' : 'none',
+          boxShadow: port.door ? `0 0 0 3px ${DOOR_COLOR[port.door]}` : 'none',
         }"
       >
         <span class="text-[10px] font-bold text-white">{{ index }}</span>
         <span
-          v-if="port.isGold || port.isTroll"
+          v-if="port.isGold || port.isTroll || port.door"
           class="text-[7px] font-semibold text-white"
         >
-          {{ port.isGold ? 'G' : '' }}{{ port.isTroll ? 'T' : '' }}
+          {{ port.isGold ? 'G' : '' }}{{ port.isTroll ? 'T' : '' }}{{ port.door ? 'D' : '' }}
         </span>
       </div>
     </div>

@@ -5,10 +5,10 @@ import BoardGrid from '../components/board/BoardGrid.vue'
 import CardHand from '../components/cards/CardHand.vue'
 import ShadowCard from '../components/cards/ShadowCard.vue'
 import { useCardStore } from '../stores/cardStore'
-import { useUserStore } from '../stores/userStore'
+import { usePlayerStore } from '../stores/playerStore'
 
 const cardStore = useCardStore()
-const { currentUserId: userId } = storeToRefs(useUserStore())
+const { currentPlayerId: playerId } = storeToRefs(usePlayerStore())
 </script>
 
 <template>
@@ -20,13 +20,13 @@ const { currentUserId: userId } = storeToRefs(useUserStore())
     <div class="flex justify-center">
       <button
         class="bg-blue-500 text-white px-4 py-2 rounded-md"
-        @click="cardStore.getRandomCard(userId)"
+        @click="cardStore.getRandomCard(playerId)"
       >
         Get card
       </button>
     </div>
     <CardHand
-      :user-id="userId"
+      :player-id="playerId"
       class="min-w-0 lg:flex-1"
     />
   </div>
