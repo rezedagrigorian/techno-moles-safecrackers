@@ -52,6 +52,10 @@ onUnmounted(() => {
     class="pointer-events-none fixed z-[9999] -translate-x-1/2 -translate-y-1/2 opacity-100"
     :style="{ left: `${selectionX}px`, top: `${selectionY}px` }"
   >
-    <Card :card-id="selectedCardId!" />
+    <div
+      class="card-size overflow-hidden bg-board-surface shadow-card-frame"
+    >
+      <Card :card-id="selectedCardId!" />
+    </div>
   </div>
 </template>

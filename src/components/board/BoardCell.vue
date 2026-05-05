@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { IGridCell } from '@/types'
 
+import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
 
 import { useCardStore } from '@/stores/cardStore'
@@ -15,6 +16,8 @@ const { assignCardToCell } = useGridStore()
 const cardStore = useCardStore()
 const { currentPlayerId } = storeToRefs(usePlayerStore())
 
+const isPlaceable = computed(() => !props.card && !!cardStore.selectedCardId)
+
 function handleClick() {
   if (props.card || !cardStore.selectedCardId) { return }
   assignCardToCell(props.id, cardStore.selectedCardId, currentPlayerId.value)
@@ -24,7 +27,8 @@ function handleClick() {
 <template>
   <button
     type="button"
-    class="aspect-[5/7] w-full min-w-0 border border-neutral-900 p-2 transition-colors"
+    class="card-size min-w-0 overflow-hidden border-r border-b border-cell-border bg-board-surface transition-colors"
+    :class="isPlaceable && 'hover:bg-cell-hover hover:ring-2 hover:ring-inset hover:ring-cyan-500'"
     @click="handleClick"
   >
     <Card

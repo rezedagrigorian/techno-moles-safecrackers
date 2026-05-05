@@ -27,8 +27,8 @@ function handleCardClick(cardId: string, event: MouseEvent) {
 
 <template>
   <aside
-    class="bg-slate-100 rounded-lg border border-neutral-200 p-3 overflow-y-auto max-h-[500px]"
-    aria-label="cards on the board"
+    class="max-h-[500px] overflow-y-auto rounded-lg p-3 border border-cell-border"
+    aria-label="Hand cards"
   >
     <div
       v-if="playerCards.length > 0"
@@ -37,20 +37,22 @@ function handleCardClick(cardId: string, event: MouseEvent) {
       <div
         v-for="card in playerCards"
         :key="card.id"
-        :class="{ 'ring-2 ring-blue-500 ring-offset-2': selectedCardId === card.id,
+        :class="{ 'rounded ring-2 ring-cyan-400 ring-offset-2 ring-offset-board-bg': selectedCardId === card.id,
                   'opacity-50 pointer-events-none': card.status === CardStatus.Placed }"
         @click="handleCardClick(card.id, $event)"
       >
-        <Card
-          :card-id="card.id"
-        />
+        <div
+          class="card-size shrink-0 overflow-hidden bg-board-surface shadow-card-frame"
+        >
+          <Card :card-id="card.id" />
+        </div>
       </div>
     </div>
     <div
       v-else
       class="flex min-h-[8rem] items-center justify-center rounded-md"
     >
-      <p class="w-full text-center text-sm text-neutral-500">
+      <p class="w-full text-center text-sm text-cyan-200/70">
         No cards
       </p>
     </div>
