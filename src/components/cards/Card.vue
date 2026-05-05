@@ -13,8 +13,8 @@ const { getCardById } = useCardStore()
 const card = computed<ICard | undefined>(() => getCardById(props.cardId))
 
 const DOOR_COLOR: Record<number, string> = {
-  1: 'green',
-  2: 'blue',
+  1: 'yellow',
+  2: 'violet',
 }
 
 const PORT_GROUP_CLASS: Record<number, string> = {
@@ -42,35 +42,56 @@ const PORT_POSITIONS = [
     v-if="card"
     role="button"
     tabindex="0"
-    class="relative grid h-[80px] w-[60px] cursor-pointer rounded border"
+    class="relative grid h-full w-full cursor-pointer overflow-hidden"
+    :class="!card.svg && 'rounded border'"
     :style="{
-      backgroundColor: card.isGolden ? 'gold' : 'white',
+      backgroundColor: card.svg ? 'transparent' : (card.isGolden ? 'gold' : 'white'),
     }"
   >
-    <div
-      v-for="(port, index) in card.ports"
-      :key="card.id + '-' + index"
-      class="absolute flex size-5 items-center justify-center"
-      :class="PORT_POSITIONS[index]"
-    >
+    <img
+      v-if="card.svg"
+      :src="`/cards/${card.svg}`"
+      :alt="card.svg"
+      class="absolute inset-0 h-full w-full object-contain"
+    />
+    <img
+      v-if="card.svg && card.goldSvg"
+      :src="`/cards/${card.goldSvg}`"
+      alt=""
+      class="pointer-events-none absolute inset-0 h-full w-full object-contain"
+    />
+    <img
+      v-if="card.doorSvg"
+      :src="`/cards/${card.doorSvg}`"
+      alt=""
+      class="pointer-events-none absolute inset-0 h-full w-full object-contain"
+    />
+    <template v-if="!card.svg">
       <div
-        v-if="port"
-        :key="`${card.id}-${index}-g${port.group}`"
-        class="flex size-5 flex-col items-center justify-center rounded-sm leading-none"
-        :class="portGroupClass(port.group)"
-        :style="{
-          border: port.isTroll ? '1px dashed black' : 'none',
-          boxShadow: port.door ? `0 0 0 3px ${DOOR_COLOR[port.door]}` : 'none',
-        }"
+        v-for="(port, index) in card.ports"
+        :key="card.id + '-' + index"
+        class="absolute flex size-5 items-center justify-center"
+        :class="PORT_POSITIONS[index]"
       >
-        <span class="text-[10px] font-bold text-white">{{ index }}</span>
-        <span
-          v-if="port.isGold || port.isTroll || port.door"
-          class="text-[7px] font-semibold text-white"
+        <div
+          v-if="port"
+          :key="`${card.id}-${index}-g${port.group}`"
+          class="flex size-5 flex-col items-center justify-center rounded-sm leading-none"
+          :class="portGroupClass(port.group)"
+          :style="{
+            border: port.isTroll ? '1px dashed black' : 'none',
+            boxShadow: port.door ? `0 0 0 3px ${DOOR_COLOR[port.door]}` : 'none',
+          }"
         >
-          {{ port.isGold ? 'G' : '' }}{{ port.isTroll ? 'T' : '' }}{{ port.door ? 'D' : '' }}
-        </span>
+          <span class="text-[10px] font-bold text-white">{{ index }}</span>
+          <span
+            v-if="port.isGold || port.isTroll || port.door"
+            class="text-[7px] font-semibold text-white"
+          >
+            {{ port.isGold ? 'G' : '' }}{{ port.isTroll ? 'T' : '' }}{{ port.door ? 'D' : '' }}
+          </span>
+        </div>
       </div>
-    </div>
+    </template>
   </div>
 </template>

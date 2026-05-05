@@ -2,314 +2,332 @@
   {
     "id": "63782181-d535-470e-90b2-44913a553332",
     "ports": [
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 1, "isTroll": false, "isGold": false }
+      { "group": 1 },
+      { "group": 1 },
+      { "group": 1 },
+      { "group": 1 }
     ],
     "isGolden": false
   },
   {
-    "id": "37a33146-0a31-489a-80a5-97105743058e",
-    "ports": [ 
+    "id": "337a33146-0a31-489a-80a5-97105743058f",
+    "ports": [
       null,
-      { "group": 1, "isTroll": false, "isGold": false },
+      { "group": 1 },
+      { "group": 2},
+      { "group": 2 }
+    ],
+    "isGolden": false,
+    "svg": "card-01.svg"
+  },
+  {
+    "id": "337a33146-0a31-489a-80a5-97105743058e",
+    "ports": [
+      {"group": 1},
+      { "group": 1 },
+      { "group": 1, "door": 1},
+      { "group": 1 }
+    ],
+    "isGolden": false,
+    "svg": "card-02.svg",
+    "doorSvg": "doors/card-02-door.svg"
+  },
+  {
+    "id": "337a33146-0a31-489a-80a5-97105743058d",
+    "ports": [
+      {"group": 1},
+      { "group": 1 },
+      { "group": 2, "isGold": true },
+      { "group": 2, "isGold": true }
+    ],
+    "isGolden": false,
+    "goldSvg": "gold/card-03-gold.svg",
+    "svg": "card-03.svg"
+  },
+  {
+    "id": "337a33146-0a31-489a-80a5-97105743058c",
+    "ports": [
+      {"group": 1},
+      { "group": 2, "isGold": true},
+      { "group": 1},
+      { "group": 2}
+    ],
+    "isGolden": false,
+    "svg": "card-04.svg",
+    "goldSvg": "gold/card-04-gold.svg"
+  },
+  {
+    "id": "337a33146-0a31-489a-80a5-97105743058a",
+    "ports": [
       null,
-      { "group": 1, "isTroll": false, "isGold": false },
+      { "group": 1},
+      null,
+      { "group": 1}
+    ],
+    "isGolden": false,
+    "svg": "card-05.svg"
+  },
+  {
+    "id": "337a33146-0a31-489a-80a5-97105743058b",
+    "ports": [
+      null,
+      { "group": 1, "door": 1},
+      { "group": 1},
+      { "group": 1}
+    ],
+    "isGolden": false,
+    "doorSvg": "doors/card-06-door.svg",
+    "svg": "card-06.svg"
+  },
+  {
+    "id": "337a33146-0a31-489a-80a5-971057430588",
+    "ports": [
+      null,
+      { "group": 1},
+      { "group": 1},
+      { "group": 1, "door": 2}
+    ],
+    "isGolden": false,
+    "doorSvg": "doors/card-07-door-violet.svg",
+    "svg": "card-07.svg"
+  },
+  {
+    "id": "337a33146-0a31-489a-80a5-971057430589",
+    "ports": [
+      null,
+      { "group": 1},
+      null,
+      { "group": 1}
+    ],
+    "isGolden": false,
+    "svg": "card-08.svg"
+  },
+  {
+    "id": "337a33146-0a31-489a-80a5-971057430580",
+    "ports": [
+      null,
+      { "group": 1},
+      null,
+      { "group": 1}
+    ],
+    "isGolden": false,
+    "svg": "card-09.svg"
+  },
+  {
+    "id": "337a33146-0a31-489a-80a5-971057430581",
+    "ports": [
+      { "group": 1},
+      { "group": 2},
+      { "group": 3},
       null
     ],
-    "isGolden": false
+    "isGolden": false,
+    "svg": "card-10.svg"
   },
   {
-    "id": "47a33146-0a31-489a-80a5-97105743058e",
-    "ports": [ 
-      null,
-      { "group": 1, "isTroll": false, "isGold": false },
-      null,
-      { "group": 1, "isTroll": false, "isGold": false },
+    "id": "337a33146-0a31-489a-80a5-971057430582",
+    "ports": [
+      { "group": 1, "isGold": true},
+      { "group": 1, "isGold":true},
+      { "group": 1, "isGold": true},
       null
     ],
-    "isGolden": false
+    "isGolden": false,
+    "goldSvg": "gold/card-11-gold.svg",
+    "svg": "card-11.svg",
+    "doorSvg": "doors/card-11-door.svg"
   },
   {
-    "id": "57a33146-0a31-489a-80a5-97105743058e",
-    "ports": [ 
-      null,
-      { "group": 1, "isTroll": false, "isGold": false },
-      null,
-      { "group": 1, "isTroll": false, "isGold": false },
+    "id": "337a33146-0a31-489a-80a5-971057430583",
+    "ports": [
+      { "group": 1, "isGold": true},
+      { "group": 1, "isGold":true, "door": 2},
+      { "group": 1, "isGold": true},
       null
     ],
-    "isGolden": false
+    "isGolden": false,
+    "doorSvg": "doors/card-12-door-violet.svg",
+    "svg": "card-12.svg",
+    "goldSvg": "gold/card-12-gold.svg"
   },
   {
-    "id": "67a33146-0a31-489a-80a5-97105743058e",
-    "ports": [ 
-      { "group": 1, "isTroll": false, "isGold": false },
-      null,
-      { "group": 1, "isTroll": false, "isGold": false },
-      null
+    "id": "337a33146-0a31-489a-80a5-971057430584",
+    "ports": [
+      { "group": 1},
+      { "group": 2},
+      { "group": 3},
+      { "group": 4}
     ],
-    "isGolden": false
+    "isGolden": false,
+    "svg": "card-13.svg"
   },
   {
-    "id": "77a33146-0a31-489a-80a5-97105743058e",
-    "ports": [ 
-      { "group": 1, "isTroll": false, "isGold": false },
+    "id": "337a33146-0a31-489a-80a5-971057430585",
+    "ports": [
+      { "group": 1, "isGold": true},
       null,
-      { "group": 1, "isTroll": false, "isGold": false },
-      null
-    ],
-    "isGolden": false
-  },
-  {
-    "id": "87a33146-0a31-489a-80a5-97105743058e",
-    "ports": [ 
-      { "group": 1, "isTroll": false, "isGold": false },
       null,
-      { "group": 1, "isTroll": false, "isGold": false },
-      null
+      { "group": 1, "isGold": true}
     ],
-    "isGolden": false
+    "isGolden": false,
+    "goldSvg": "gold/card-14-gold.svg",
+    "svg": "card-14.svg"
   },
   {
-    "id": "97a33146-0a31-489a-80a5-97105743058e",
-    "ports": [ 
-      { "group": 1, "isTroll": false, "isGold": false },
-      null,
-      { "group": 1, "isTroll": false, "isGold": false },
-      null
-    ],
-    "isGolden": false
-  },
-  {
-    "id": "107a33146-0a31-489a-80a5-97105743058e",
-    "ports": [ 
-      null,
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 1, "isTroll": false, "isGold": false },
-      null
-    ],
-    "isGolden": false
-  },
-  {
-    "id": "117a33146-0a31-489a-80a5-97105743058e",
+    "id": "337a33146-0a31-489a-80a5-971057430586",
     "ports": [
       null,
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 1, "isTroll": false, "isGold": false },
-      null
-    ],
-    "isGolden": false
-  },
-  {
-    "id": "127a33146-0a31-489a-80a5-97105743058e",
-    "ports": [
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 1, "isTroll": false, "isGold": false },
       null,
-      null
+      { "group": 1, "isGold": true},
+      { "group": 1, "isGold": true}
     ],
-    "isGolden": false
+    "isGolden": false,
+    "goldSvg": "gold/card-15-gold.svg",
+    "svg": "card-15.svg"
   },
   {
-    "id": "137a33146-0a31-489a-80a5-97105743058e",
-    "ports": [
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 1, "isTroll": false, "isGold": false },
-      null,
-      null
-    ],
-    "isGolden": false
-  },
-  {
-    "id": "147a33146-0a31-489a-80a5-97105743058e",
+    "id": "337a33146-0a31-489a-80a5-971057430587",
     "ports": [
       null,
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 2, "isTroll": false, "isGold": false },
-      { "group": 1, "isTroll": false, "isGold": false }
+      null,
+      { "group": 1, "isGold": true},
+      { "group": 1 }
     ],
-    "isGolden": false
+    "isGolden": false,
+    "svg": "card-16.svg",
+    "goldSvg": "gold/card-16-gold.svg"
   },
   {
-    "id": "157a33146-0a31-489a-80a5-97105743058e",
-    "ports": [
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 2, "isTroll": false, "isGold": false },
-      { "group": 2, "isTroll": false, "isGold": false },
-      { "group": 1, "isTroll": false, "isGold": false }
-    ],
-    "isGolden": false
-  },
-  {
-    "id": "167a33146-0a31-489a-80a5-97105743058e",
+    "id": "337a33146-0a31-489a-80a5-971057430590",
     "ports": [
       null,
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 2, "isTroll": false, "isGold": false }
-    ],
-    "isGolden": false
-  },
-  {
-    "id": "177a33146-0a31-489a-80a5-97105743058e",
-    "ports": [
-      { "group": 1, "isTroll": false, "isGold": false },
       null,
-      { "group": 2, "isTroll": false, "isGold": false },
-      { "group": 1, "isTroll": false, "isGold": false }
+      { "group": 1, "door": 1},
+      { "group": 1, "door": 1, "isGold": true}
     ],
-    "isGolden": false
+    "isGolden": false,
+    "doorSvg": "doors/card-17-door.svg",
+    "svg": "card-17.svg",
+    "goldSvg": "gold/card-17-gold.svg"
   },
   {
-    "id": "187a33146-0a31-489a-80a5-97105743058e",
+    "id": "337a33146-0a31-489a-80a5-971057430591",
     "ports": [
+      { "group": 1, "door": 2},
       null,
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 2, "isTroll": false, "isGold": false },
-      { "group": 2, "isTroll": false, "isGold": false }
-    ],
-    "isGolden": false
-  },
-  {
-    "id": "197a33146-0a31-489a-80a5-97105743058e",
-    "ports": [
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 2, "isTroll": false, "isGold": false },
-      null
-    ],
-    "isGolden": false
-  },
-  {
-    "id": "207a33146-0a31-489a-80a5-97105743058e",
-    "ports": [
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 1, "isTroll": true, "isGold": false },
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 1, "isTroll": false, "isGold": false }
-    ],
-    "isGolden": false
-  },
-  {
-    "id": "217a33146-0a31-489a-80a5-97105743058e",
-    "ports": [
-      { "group": 1, "isTroll": true, "isGold": false },
       null,
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 1, "isTroll": false, "isGold": false }
+      { "group": 1, "door": 2, "isGold": true}
     ],
-    "isGolden": false
+    "isGolden": false,
+    "doorSvg": "doors/card-18-door-violet.svg",
+    "svg": "card-18.svg",
+    "goldSvg": "gold/card-18-gold.svg"
   },
   {
-    "id": "227a33146-0a31-489a-80a5-97105743058e",
+    "id": "337a33146-0a31-489a-80a5-971057430592",
     "ports": [
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 1, "isTroll": false, "isGold": false },
+      { "group": 1 },
       null,
-      { "group": 1, "isTroll": true, "isGold": false }
-    ],
-    "isGolden": false
-  },
-  {
-    "id": "237a33146-0a31-489a-80a5-97105743058e",
-    "ports": [
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 2, "isTroll": false, "isGold": true }
-    ],
-    "isGolden": false
-  },
-  {
-    "id": "247a33146-0a31-489a-80a5-97105743058e",
-    "ports": [
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 2, "isTroll": false, "isGold": true },
-      { "group": 1, "isTroll": false, "isGold": false },
-      null
-    ],
-    "isGolden": false
-  },
-  {
-    "id": "257a33146-0a31-489a-80a5-97105743058e",
-    "ports": [
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 2, "isTroll": false, "isGold": true },
-      { "group": 2, "isTroll": false, "isGold": false }
-    ],
-    "isGolden": false
-  },
-  {
-    "id": "267a33146-0a31-489a-80a5-97105743058e",
-    "ports": [
-      { "group": 1, "isTroll": false, "isGold": true },
-      { "group": 2, "isTroll": false, "isGold": false },
-      { "group": 2, "isTroll": false, "isGold": false },
-      { "group": 2, "isTroll": false, "isGold": false }
-    ],
-    "isGolden": false
-  },
-  {
-    "id": "277a33146-0a31-489a-80a5-97105743058e",
-    "ports": [
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 1, "isTroll": false, "isGold": false, "door": 2 }
-    ],
-    "isGolden": false
-  },
-  {
-    "id": "287a33146-0a31-489a-80a5-97105743058e",
-    "ports": [
-      { "group": 1, "isTroll": false, "isGold": false, "door": 2 },
       null,
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 1, "isTroll": false, "isGold": false }
-
+      { "group": 2, "isGold": true}
     ],
-    "isGolden": false
+    "isGolden": false,
+    "svg": "card-19.svg",
+    "goldSvg": "gold/card-19-gold.svg"
   },
   {
-    "id": "297a33146-0a31-489a-80a5-97105743058e",
+    "id": "337a33146-0a31-489a-80a5-971057430593",
+    "ports": [
+      { "group": 1, "isGold": true, "door": 2},
+      { "group": 1, "isGold": true },
+      null,
+      { "group": 1, "isGold": true}
+    ],
+    "isGolden": false,
+    "doorSvg": "doors/card-20-door-violet.svg",
+    "svg": "card-20.svg",
+    "goldSvg": "gold/card-20-gold.svg"
+  },
+  {
+    "id": "337a33146-0a31-489a-80a5-971057430594",
+    "ports": [
+      { "group": 1, "isGold": true},
+      { "group": 1, "isGold": true},
+      null,
+      { "group": 1, "isGold": true, "door": 1}
+    ],
+    "isGolden": false,
+    "doorSvg": "doors/card-21-door.svg",
+    "svg": "card-21.svg",
+    "goldSvg": "gold/card-21-gold.svg"
+  },
+  {
+    "id": "337a33146-0a31-489a-80a5-971057430595",
+    "ports": [
+      { "group": 1, "isGold": true},
+      null,
+      { "group": 1, "isGold": true},
+      { "group": 1, "isGold": true, "door": 1}
+    ],
+    "isGolden": false,
+    "doorSvg": "doors/card-22-door.svg",
+    "svg": "card-22.svg",
+    "goldSvg": "gold/card-22-gold.svg"
+  },
+  {
+    "id": "337a33146-0a31-489a-80a5-971057430596",
+    "ports": [
+      { "group": 1},
+      { "group": 2},
+      null,
+      { "group": 3}
+    ],
+    "isGolden": false,
+    "svg": "card-23.svg"
+  },
+  {
+    "id": "337a33146-0a31-489a-80a5-971057430597",
     "ports": [
       null,
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 1, "isTroll": false, "isGold": false, "door": 2 }
+      { "group": 1, "isGold": true},
+      { "group": 1, "isGold": true },
+      { "group": 1, "isGold": true, "door": 2}
     ],
-    "isGolden": false
+    "isGolden": false,
+    "doorSvg": "doors/card-24-door-violet.svg",
+    "svg": "card-24.svg",
+    "goldSvg": "gold/card-24-gold.svg"
   },
   {
-    "id": "307a33146-0a31-489a-80a5-97105743058e",
+    "id": "337a33146-0a31-489a-80a5-971057430598",
     "ports": [
-      { "group": 1, "isTroll": false, "isGold": false, "door": 1 },
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 1, "isTroll": false, "isGold": false}
+      { "group": 1},
+      { "group": 2, "isGold": true},
+      { "group": 3},
+      { "group": 2, "isGold": true}
     ],
-    "isGolden": false
+    "isGolden": false,
+    "svg": "card-25.svg",
+    "goldSvg": "gold/card-25-gold.svg"
+  },
+  { "id": "337a33146-0a31-489a-80a5-971057430599",
+    "ports": [
+      { "group": 1, "isGold": true},
+      { "group": 2},
+      { "group": 1, "isGold": true},
+      { "group": 3}
+    ],
+    "isGolden": false,
+    "svg": "card-26.svg",
+    "goldSvg": "gold/card-26-gold.svg"
   },
   {
-    "id": "317a33146-0a31-489a-80a5-97105743058e",
+    "id": "337a33146-0a31-489a-80a5-971057430600",
     "ports": [
-      { "group": 1, "isTroll": false, "isGold": false },
-      null,
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 1, "isTroll": false, "isGold": false, "door": 1}
-    ],
-    "isGolden": false
-  },
-  {
-    "id": "327a33146-0a31-489a-80a5-97105743058e",
-    "ports": [
-      { "group": 1, "isTroll": false, "isGold": false },
-      { "group": 1, "isTroll": false, "isGold": false },
-      null,
-      { "group": 1, "isTroll": false, "isGold": false, "door": 1}
+      { "group": 1},
+      { "group": 1},
+      { "group": 1},
+      { "group": 1}
     ],
     "isGolden": false
   }

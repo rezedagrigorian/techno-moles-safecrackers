@@ -1,8 +1,8 @@
 import type { PlayerColor } from './player'
 export interface ICardPort {
   group: number
-  isTroll: boolean
-  isGold: boolean,
+  isTroll?: boolean
+  isGold?: boolean
   door?: PlayerColor
 }
 
@@ -20,7 +20,10 @@ export enum CardStatus {
 export interface ICardBase {
   id: string
   ports: ICardPorts
-  isGolden: boolean
+  isGolden: boolean``
+  svg?: string
+  goldSvg?: string
+  doorSvg?: string
 }
 
 export interface ICard extends ICardBase {

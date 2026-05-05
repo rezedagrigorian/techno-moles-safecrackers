@@ -1,5 +1,20 @@
 @import "tailwindcss";
 
+@theme {
+  --color-board-bg: red;
+  --color-cell-border: #0E5E72;
+  --color-cell-hover: #0A4A60;
+  --color-board-surface: #003550;
+  --shadow-card-frame: 0 0 5px 2px #00EBEB;
+  --cell-width: 80px;
+  --card-aspect-ratio: 80 / 124;
+}
+
+@utility card-size {
+  width: var(--cell-width);
+  aspect-ratio: var(--card-aspect-ratio);
+}
+
 @layer base {
   :root {
     font-family: system-ui, "Segoe UI", Roboto, sans-serif;
@@ -10,7 +25,7 @@
 
   body {
     margin: 0;
-    background-color: var(--color-white);
+    background-color: #003E5D;
     color: var(--color-neutral-700);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

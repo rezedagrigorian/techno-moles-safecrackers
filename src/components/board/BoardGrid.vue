@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import BoardCell from './BoardCell.vue'
 import { useGridStore } from '../../stores/gridStore'
 
@@ -7,16 +6,18 @@ const gridStore = useGridStore()
 </script>
 
 <template>
-  <div
-    class="grid gap-1.5 p-2 min-w-[30rem]"
-    :style="{
-      gridTemplateColumns: `repeat(${gridStore.grid.size.width}, 80px)`,
-    }"
-  >
-    <BoardCell
-      v-for="cell in gridStore.grid.cells"
-      :key="cell.id"
-      v-bind="cell"
-    />
+  <div class="rounded-lg p-3">
+    <div
+      class="grid border-l border-t border-cell-border"
+      :style="{
+        gridTemplateColumns: `repeat(${gridStore.grid.size.width}, var(--cell-width))`,
+      }"
+    >
+      <BoardCell
+        v-for="cell in gridStore.grid.cells"
+        :key="cell.id"
+        v-bind="cell"
+      />
+    </div>
   </div>
 </template>
