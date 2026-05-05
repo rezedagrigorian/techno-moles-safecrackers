@@ -329,6 +329,7 @@
       { "group": 1},
       { "group": 1}
     ],
-    "isGolden": false
+    "isGolden": false,
+    "svg": "card-27.svg"
   }
 ]

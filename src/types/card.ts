@@ -20,7 +20,7 @@ export enum CardStatus {
 export interface ICardBase {
   id: string
   ports: ICardPorts
-  isGolden: boolean``
+  isGolden: boolean
   svg?: string
   goldSvg?: string
   doorSvg?: string
