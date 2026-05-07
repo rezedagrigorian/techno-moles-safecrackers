@@ -47,7 +47,7 @@ function getCellIndex(x: number, y: number, width: number): number {
 }
 
 function placeStartCard(grid: IGrid): undefined {
-  const startCellIndex = getCellIndex(grid.size.width - 9, Math.floor((grid.size.height - 1) / 2), grid.size.width)
+  const startCellIndex = getCellIndex(grid.size.width - 10, Math.floor((grid.size.height - 1) / 2), grid.size.width)
   const startCell = grid.cells[startCellIndex]
   if (startCell) {
     startCell.card = START_CARD_ID

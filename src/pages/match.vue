@@ -17,17 +17,18 @@ const { currentPlayerId: playerId } = storeToRefs(usePlayerStore())
     <div class="-mx-4 overflow-x-auto px-4 lg:mx-0 lg:overflow-visible lg:px-0">
       <BoardGrid class="shrink-0" />
     </div>
-    <div class="flex justify-center">
+    <div class="flex w-full justify-between flex-col gap-y-4">
       <button
         class="bg-blue-500 text-white px-4 py-2 rounded-md"
         @click="cardStore.getRandomCard(playerId)"
       >
         Get card
       </button>
+    
+      <CardHand
+        :player-id="playerId"
+        class="min-w-0 lg:flex-1"
+      />
     </div>
-    <CardHand
-      :player-id="playerId"
-      class="min-w-0 lg:flex-1"
-    />
   </div>
 </template>

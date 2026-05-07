@@ -24,6 +24,7 @@ export interface ICardBase {
   svg?: string
   goldSvg?: string
   doorSvg?: string
+  goldAmount?: number
 }
 
 export interface ICard extends ICardBase {

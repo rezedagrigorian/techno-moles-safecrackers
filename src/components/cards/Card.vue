@@ -46,6 +46,7 @@ const PORT_POSITIONS = [
     :class="!card.svg && 'rounded border'"
     :style="{
       backgroundColor: card.svg ? 'transparent' : (card.isGolden ? 'gold' : 'white'),
+      transform: card.rotation ? 'rotate(180deg)' : 'rotate(0deg)',
     }"
   >
     <img
@@ -53,19 +54,19 @@ const PORT_POSITIONS = [
       :src="`/cards/${card.svg}`"
       :alt="card.svg"
       class="absolute inset-0 h-full w-full object-contain"
-    />
+    >
     <img
       v-if="card.svg && card.goldSvg"
       :src="`/cards/${card.goldSvg}`"
       alt=""
       class="pointer-events-none absolute inset-0 h-full w-full object-contain"
-    />
+    >
     <img
       v-if="card.doorSvg"
       :src="`/cards/${card.doorSvg}`"
       alt=""
       class="pointer-events-none absolute inset-0 h-full w-full object-contain"
-    />
+    >
     <template v-if="!card.svg">
       <div
         v-for="(port, index) in card.ports"
