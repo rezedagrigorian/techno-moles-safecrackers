@@ -27,7 +27,7 @@ function handleCardClick(cardId: string, event: MouseEvent) {
 
 <template>
   <aside
-    class="max-h-[500px] overflow-y-auto rounded-lg p-3 border border-cell-border"
+    class="max-h-[500px] overflow-y-auto rounded-lg p-3 border border-border"
     aria-label="Hand cards"
   >
     <div

@@ -41,6 +41,7 @@
       { "group": 2, "isGold": true }
     ],
     "isGolden": false,
+    "goldAmount": 1,
     "goldSvg": "gold/card-03-gold.svg",
     "svg": "card-03.svg"
   },
@@ -53,6 +54,7 @@
       { "group": 2}
     ],
     "isGolden": false,
+    "goldAmount": 1,
     "svg": "card-04.svg",
     "goldSvg": "gold/card-04-gold.svg"
   },
@@ -133,6 +135,7 @@
       null
     ],
     "isGolden": true,
+    "goldAmount": 1,
     "goldSvg": "gold/card-11-gold.svg",
     "svg": "card-11.svg",
     "doorSvg": "doors/card-11-door.svg"
@@ -146,6 +149,7 @@
       null
     ],
     "isGolden": true,
+    "goldAmount": 2,
     "doorSvg": "doors/card-12-door-violet.svg",
     "svg": "card-12.svg",
     "goldSvg": "gold/card-12-gold.svg"
@@ -170,6 +174,7 @@
       { "group": 1, "isGold": true}
     ],
     "isGolden": true,
+    "goldAmount": 2,
     "goldSvg": "gold/card-14-gold.svg",
     "svg": "card-14.svg"
   },
@@ -182,6 +187,7 @@
       { "group": 1, "isGold": true}
     ],
     "isGolden": true,
+    "goldAmount": 2,
     "goldSvg": "gold/card-15-gold.svg",
     "svg": "card-15.svg"
   },
@@ -194,6 +200,7 @@
       { "group": 2 }
     ],
     "isGolden": true,
+    "goldAmount": 1,
     "svg": "card-16.svg",
     "goldSvg": "gold/card-16-gold.svg"
   },
@@ -206,6 +213,7 @@
       { "group": 1, "door": 1, "isGold": true}
     ],
     "isGolden": true,
+    "goldAmount": 1,
     "doorSvg": "doors/card-17-door.svg",
     "svg": "card-17.svg",
     "goldSvg": "gold/card-17-gold.svg"
@@ -219,6 +227,7 @@
       { "group": 1, "door": 2, "isGold": true}
     ],
     "isGolden": true,
+    "goldAmount": 1,
     "doorSvg": "doors/card-18-door-violet.svg",
     "svg": "card-18.svg",
     "goldSvg": "gold/card-18-gold.svg"
@@ -232,6 +241,7 @@
       { "group": 2, "isGold": true}
     ],
     "isGolden": true,
+    "goldAmount": 3,
     "svg": "card-19.svg",
     "goldSvg": "gold/card-19-gold.svg"
   },
@@ -244,6 +254,7 @@
       { "group": 1, "isGold": true}
     ],
     "isGolden": true,
+    "goldAmount": 1,
     "doorSvg": "doors/card-20-door-violet.svg",
     "svg": "card-20.svg",
     "goldSvg": "gold/card-20-gold.svg"
@@ -257,6 +268,7 @@
       { "group": 1, "isGold": true, "door": 1}
     ],
     "isGolden": true,
+    "goldAmount": 2,
     "doorSvg": "doors/card-21-door.svg",
     "svg": "card-21.svg",
     "goldSvg": "gold/card-21-gold.svg"
@@ -270,6 +282,7 @@
       { "group": 1, "isGold": true, "door": 1}
     ],
     "isGolden": true,
+    "goldAmount": 3,
     "doorSvg": "doors/card-22-door.svg",
     "svg": "card-22.svg",
     "goldSvg": "gold/card-22-gold.svg"
@@ -294,6 +307,7 @@
       { "group": 1, "isGold": true, "door": 2}
     ],
     "isGolden": true,
+    "goldAmount": 3,
     "doorSvg": "doors/card-24-door-violet.svg",
     "svg": "card-24.svg",
     "goldSvg": "gold/card-24-gold.svg"
@@ -307,6 +321,7 @@
       { "group": 2, "isGold": true}
     ],
     "isGolden": true,
+    "goldAmount": 1,
     "svg": "card-25.svg",
     "goldSvg": "gold/card-25-gold.svg"
   },
@@ -318,6 +333,7 @@
       { "group": 3}
     ],
     "isGolden": true,
+    "goldAmount": 2,
     "svg": "card-26.svg",
     "goldSvg": "gold/card-26-gold.svg"
   },
@@ -374,6 +390,7 @@
       { "group": 2, "isGold": true}
     ],
     "isGolden": false,
+    "goldAmount": 1,
     "svg": "card-31.svg",
     "goldSvg": "gold/card-31-gold.svg"
   },
