@@ -5,8 +5,8 @@ import type { IPlayer } from '@/types'
 
 function createInitialDuelPlayers(): IPlayer[] {
   return [
-    { id: 'player1', name: 'Player 1', avatar: '' },
-    { id: 'player2', name: 'Player 2', avatar: '' },
+    { id: 'player1', name: 'Player 1', avatar: '', gold: 0 },
+    { id: 'player2', name: 'Player 2', avatar: '', gold: 0 },
   ]
 }
 
@@ -18,5 +18,16 @@ export const usePlayerStore = defineStore('player', () => {
     players.value.find(player => player.id === currentPlayerId.value)
   )
 
-  return { players, currentPlayerId, currentPlayer }
+  function addGold(playerId: string, amount: number) {
+    const player = players.value.find(p => p.id === playerId)
+    if (player) player.gold += amount
+  }
+
+  function setGold(playerId: string, amount: number) {
+    const player = players.value.find(p => p.id === playerId)
+    if (player) player.gold = amount
+  }
+
+
+  return { players, currentPlayerId, currentPlayer, setGold, addGold }
 })

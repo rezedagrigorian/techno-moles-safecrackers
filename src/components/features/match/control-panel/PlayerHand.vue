@@ -1,16 +1,17 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import PlayerIcon from '@/components/features/match/control-panel/PlayerIcon.vue'
 import DiscardHudButton from '@/components/features/match/DiscardHudButton.vue'
 import diamondIconSrc from '@/assets/diamond-icon.svg'
+import { usePlayerStore } from '@/stores/playerStore'
 
-withDefaults(
-  defineProps<{
-    playerId: string
-    diamondCount?: number
-  }>(),
-  {
-    diamondCount: 0,
-  },
+const props = defineProps<{
+  playerId: string
+}>()
+
+const playerStore = usePlayerStore()
+const gold = computed(() =>
+  playerStore.players.find(p => p.id === props.playerId)?.gold ?? 0
 )
 </script>
 
@@ -22,16 +23,16 @@ withDefaults(
       </div>
       <div
         class="flex shrink-0 items-center gap-1.5 text-base text-block-border"
-        aria-label="Diamonds"
+        aria-label="Gold"
       >
         <img
           :src="diamondIconSrc"
-          alt="Diamond"
+          alt="Gold"
           class="size-5 shrink-0 select-none"
           width="20"
           height="18"
         >
-        <span class="tabular-nums leading-none">{{ diamondCount }}</span>
+        <span class="tabular-nums leading-none">{{ gold }}</span>
       </div>
     </div>
 

@@ -16,11 +16,11 @@ const playerCards = computed(() =>
   Array.from(cards.value.values()).filter(card =>  card.owner === props.playerId)
 )
 
-function handleCardClick(cardId: string, event: MouseEvent) {
+function handleCardClick(cardId: string) {
   if (selectedCardId.value === cardId) {
     cardStore.clearSelection()
   } else {
-    cardStore.selectCard(cardId, event.clientX, event.clientY)
+    cardStore.selectCard(cardId)
   }
 }
 </script>
@@ -39,7 +39,7 @@ function handleCardClick(cardId: string, event: MouseEvent) {
         :key="card.id"
         :class="{ 'rounded ring-2 ring-cyan-400 ring-offset-2 ring-offset-board-bg': selectedCardId === card.id,
                   'opacity-50 pointer-events-none': card.status === CardStatus.Placed }"
-        @click="handleCardClick(card.id, $event)"
+        @click="handleCardClick(card.id)"
       >
         <div
           class="card-size shrink-0 overflow-hidden bg-board-surface shadow-card-frame"
