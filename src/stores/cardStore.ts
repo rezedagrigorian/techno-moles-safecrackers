@@ -1,4 +1,3 @@
-
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 
@@ -72,7 +71,7 @@ export const useCardStore = defineStore('cards', () => {
     })
   }
   
-
+  
   function getPortsByCardID(id: string) : (ICardPort | undefined)[] {
     const card = getCardById(id)
     return card ? card.ports : []

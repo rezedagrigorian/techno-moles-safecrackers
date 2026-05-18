@@ -7,6 +7,7 @@ import type { IGrid, IGridCell } from '@/types'
 
 import { DEFAULT_GRID_HEIGHT, DEFAULT_GRID_WIDTH, START_CARD_ID } from '@/game-core/constants'
 import { useCardStore } from './cardStore'
+import { usePlayerStore } from './playerStore'
 
 const DIRECTIONS = [
     { dx: -1, dy: 0 }, // левый сосед
@@ -47,7 +48,7 @@ function getCellIndex(x: number, y: number, width: number): number {
 }
 
 function placeStartCard(grid: IGrid): undefined {
-  const startCellIndex = getCellIndex(grid.size.width - 9, Math.floor((grid.size.height - 1) / 2), grid.size.width)
+  const startCellIndex = getCellIndex(grid.size.width - 10, Math.floor((grid.size.height - 1) / 2), grid.size.width)
   const startCell = grid.cells[startCellIndex]
   if (startCell) {
     startCell.card = START_CARD_ID
@@ -69,6 +70,7 @@ function createGrid(width = DEFAULT_GRID_WIDTH, height = DEFAULT_GRID_HEIGHT): I
 export const useGridStore = defineStore('grid', () => {
   const grid = ref<IGrid>(createGrid())
   const cardStore = useCardStore()
+  const playerStore = usePlayerStore()
 
   function initializeGrid(width = DEFAULT_GRID_WIDTH, height = DEFAULT_GRID_HEIGHT):void {
     grid.value = createGrid(width, height)
@@ -103,13 +105,81 @@ export const useGridStore = defineStore('grid', () => {
         continue
       }
       const neighborPorts = cardStore.getPortsByCardID(neighbor.id)
-      const neighborHasPort = neighborPorts[PORT_MAPPING[index]] !== null
+      const neighborHasPort = !!neighborPorts[PORT_MAPPING[index]]
 
       if (port && !neighborHasPort || !port && neighborHasPort) {
         return false
       }
     }
     return true
+  }
+
+  function goldTrace(): number {
+    const queue: ITraceChunk[] = []
+    const visited = new Set<string>()
+    const countedGold = new Set<string>()
+
+    const startCardCell = grid.value.cells.find(c => c.card === START_CARD_ID)
+
+    const startPorts = cardStore.getPortsByCardID(START_CARD_ID)
+    if(!startCardCell) return 0
+  
+    for(const [index, port] of startPorts.entries()) {
+      if(port) {
+        queue.push({
+          portIndex: index,
+          cardID: START_CARD_ID,
+          x: startCardCell.coordinate.x,
+          y: startCardCell.coordinate.y,
+        })
+      }
+    }
+
+    let total = 0
+
+    while(queue.length > 0) {
+      const { portIndex, cardID, x, y } = queue.shift()!
+      const stateKey = `${x},${y},${cardID},${portIndex}`
+
+      if (visited.has(stateKey)) {
+        continue
+      }
+      visited.add(stateKey)
+
+      const neighbour = getNeighborCardByDirection(x, y, portIndex)
+      if (!neighbour) {
+        continue
+      }
+
+      const inPort = neighbour.ports[PORT_MAPPING[portIndex]]
+      if (neighbour.gold && inPort) {
+        const goldKey = `${neighbour.id}:${inPort.group}`
+
+        if(!countedGold.has(goldKey)) {
+          total += neighbour.gold[inPort.group] ?? 0
+          countedGold.add(goldKey)
+        }
+      }
+
+      const outPorts = cardStore.getOutPortsByCardIDAndPortIndex(neighbour.id, PORT_MAPPING[portIndex])
+      if (!outPorts) {
+        continue
+      }
+      outPorts.forEach((outPort, index) => {
+        if (outPort) {
+          queue.push({
+            portIndex: index,
+            cardID: neighbour.id,
+            x: x + DIRECTIONS[portIndex].dx,
+            y: y + DIRECTIONS[portIndex].dy,
+          })
+        }
+      })
+    }
+    if (playerStore.currentPlayer) {
+      playerStore.setGold(playerStore.currentPlayer.id, total)
+    }
+    return total
   }
 
 
@@ -182,6 +252,8 @@ export const useGridStore = defineStore('grid', () => {
       cell.card = cardId
       cardStore.markCardAsPlaced(cardId, playerId)
       cardStore.clearSelection()
+
+      goldTrace()
     }
   }
 

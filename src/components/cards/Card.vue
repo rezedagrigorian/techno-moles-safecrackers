@@ -43,30 +43,31 @@ const PORT_POSITIONS = [
     role="button"
     tabindex="0"
     class="relative grid h-full w-full cursor-pointer overflow-hidden"
-    :class="!card.svg && 'rounded border'"
+    :class="!card.style.svg && 'rounded border'"
     :style="{
-      backgroundColor: card.svg ? 'transparent' : (card.isGolden ? 'gold' : 'white'),
+      backgroundColor: card.style.svg ? 'transparent' : (card.isGolden ? 'gold' : 'white'),
+      transform: card.rotation ? 'rotate(180deg)' : 'rotate(0deg)',
     }"
   >
     <img
-      v-if="card.svg"
-      :src="`/cards/${card.svg}`"
-      :alt="card.svg"
+      v-if="card.style.svg"
+      :src="`/cards/${card.style.svg}`"
+      :alt="card.style.svg"
       class="absolute inset-0 h-full w-full object-contain"
-    />
+    >
     <img
-      v-if="card.svg && card.goldSvg"
-      :src="`/cards/${card.goldSvg}`"
+      v-if="card.style.svg && card.style.goldSvg"
+      :src="`/cards/${card.style.goldSvg}`"
       alt=""
       class="pointer-events-none absolute inset-0 h-full w-full object-contain"
-    />
+    >
     <img
-      v-if="card.doorSvg"
-      :src="`/cards/${card.doorSvg}`"
+      v-if="card.style.doorSvg"
+      :src="`/cards/${card.style.doorSvg}`"
       alt=""
       class="pointer-events-none absolute inset-0 h-full w-full object-contain"
-    />
-    <template v-if="!card.svg">
+    >
+    <template v-if="!card.style.svg">
       <div
         v-for="(port, index) in card.ports"
         :key="card.id + '-' + index"
@@ -85,10 +86,10 @@ const PORT_POSITIONS = [
         >
           <span class="text-[10px] font-bold text-white">{{ index }}</span>
           <span
-            v-if="port.isGold || port.isTroll || port.door"
+            v-if="card.gold?.[port.group] || port.isTroll || port.door"
             class="text-[7px] font-semibold text-white"
           >
-            {{ port.isGold ? 'G' : '' }}{{ port.isTroll ? 'T' : '' }}{{ port.door ? 'D' : '' }}
+            {{ card.gold?.[port.group] ? 'G' : '' }}{{ port.isTroll ? 'T' : '' }}{{ port.door ? 'D' : '' }}
           </span>
         </div>
       </div>

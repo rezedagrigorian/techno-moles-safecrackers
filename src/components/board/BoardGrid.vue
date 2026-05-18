@@ -8,7 +8,7 @@ const gridStore = useGridStore()
 <template>
   <div class="rounded-lg p-3">
     <div
-      class="grid border-l border-t border-cell-border"
+      class="grid p-4 gap-0 overflow-hidden border border-block-border bg-main-bg"
       :style="{
         gridTemplateColumns: `repeat(${gridStore.grid.size.width}, var(--cell-width))`,
       }"
