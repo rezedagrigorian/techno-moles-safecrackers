@@ -422,7 +422,7 @@
       { "group": 1},
       { "group": 1},
       { "group": 1},
-      { "group": 1, "isTroll": true}
+      { "group": 1, "isRat": true}
     ],
     "isGolden": false,
     "svg": "card-34.svg"

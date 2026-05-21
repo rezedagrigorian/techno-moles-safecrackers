@@ -9,6 +9,7 @@ import { DEFAULT_GRID_HEIGHT, DEFAULT_GRID_WIDTH, START_CARD_ID } from '@/game-c
 import { useCardStore } from './cardStore'
 import { usePlayerStore } from './playerStore'
 
+
 const DIRECTIONS = [
     { dx: -1, dy: 0 }, // левый сосед
     { dx: 0, dy: -1 }, // верхний сосед
@@ -152,7 +153,11 @@ export const useGridStore = defineStore('grid', () => {
       }
 
       const inPort = neighbour.ports[PORT_MAPPING[portIndex]]
-      if (neighbour.gold && inPort) {
+      if (!inPort) continue
+      if (inPort.isRat) continue
+      if (inPort.door && inPort.door !== playerStore.currentPlayerColor) continue
+
+      if (neighbour.gold) {
         const goldKey = `${neighbour.id}:${inPort.group}`
 
         if(!countedGold.has(goldKey)) {
@@ -215,6 +220,11 @@ export const useGridStore = defineStore('grid', () => {
       if (!neighbour) {
         continue
       }
+      const inPort = neighbour.ports[PORT_MAPPING[portIndex]]
+      if (!inPort) continue
+      if (inPort.isRat) continue
+      if (inPort.door && inPort.door !== playerStore.currentPlayerColor) continue
+
       const outPorts = cardStore.getOutPortsByCardIDAndPortIndex(neighbour.id, PORT_MAPPING[portIndex])
       if (!outPorts) {
         continue

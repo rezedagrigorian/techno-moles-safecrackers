@@ -34,6 +34,21 @@ const PORT_POSITIONS = [
   'bottom-[-8px] left-1/2 -translate-x-1/2',   // 3 - снизу по центру
 ]
 
+const RAT_OVERLAY_SIZE = 'w-[60%] aspect-[59/64]'
+
+const RAT_OVERLAY_POSITION = [
+  'left-0 top-1/2 -translate-y-1/2',
+  'top-0 left-1/2 -translate-x-1/2',
+  'right-0 top-1/2 -translate-y-1/2',
+  'bottom-0 left-1/2 -translate-x-1/2',
+]
+
+const ratOverlayClass = computed<string | null>(() => {
+  if (!card.value) return null
+  const portIndex = card.value.ports.findIndex(port => port?.isRat)
+  if (portIndex < 0) return null
+  return `${RAT_OVERLAY_SIZE} ${RAT_OVERLAY_POSITION[portIndex]}`
+})
 
 </script>
 
@@ -46,53 +61,64 @@ const PORT_POSITIONS = [
     :class="!card.style.svg && 'rounded border'"
     :style="{
       backgroundColor: card.style.svg ? 'transparent' : (card.isGolden ? 'gold' : 'white'),
-      transform: card.rotation ? 'rotate(180deg)' : 'rotate(0deg)',
     }"
   >
-    <img
-      v-if="card.style.svg"
-      :src="`/cards/${card.style.svg}`"
-      :alt="card.style.svg"
-      class="absolute inset-0 h-full w-full object-contain"
+    <div
+      class="absolute inset-0"
+      :style="{ transform: card.rotation ? 'rotate(180deg)' : 'rotate(0deg)' }"
     >
-    <img
-      v-if="card.style.svg && card.style.goldSvg"
-      :src="`/cards/${card.style.goldSvg}`"
-      alt=""
-      class="pointer-events-none absolute inset-0 h-full w-full object-contain"
-    >
-    <img
-      v-if="card.style.doorSvg"
-      :src="`/cards/${card.style.doorSvg}`"
-      alt=""
-      class="pointer-events-none absolute inset-0 h-full w-full object-contain"
-    >
-    <template v-if="!card.style.svg">
-      <div
-        v-for="(port, index) in card.ports"
-        :key="card.id + '-' + index"
-        class="absolute flex size-5 items-center justify-center"
-        :class="PORT_POSITIONS[index]"
+      <img
+        v-if="card.style.svg"
+        :src="`/cards/${card.style.svg}`"
+        :alt="card.style.svg"
+        class="absolute inset-0 h-full w-full object-contain"
       >
+      <img
+        v-if="card.style.svg && card.style.goldSvg"
+        :src="`/cards/${card.style.goldSvg}`"
+        alt=""
+        class="pointer-events-none absolute inset-0 h-full w-full object-contain"
+      >
+      <img
+        v-if="card.style.doorSvg"
+        :src="`/cards/${card.style.doorSvg}`"
+        alt=""
+        class="pointer-events-none absolute inset-0 h-full w-full object-contain"
+      >
+      <template v-if="!card.style.svg">
         <div
-          v-if="port"
-          :key="`${card.id}-${index}-g${port.group}`"
-          class="flex size-5 flex-col items-center justify-center rounded-sm leading-none"
-          :class="portGroupClass(port.group)"
-          :style="{
-            border: port.isTroll ? '1px dashed black' : 'none',
-            boxShadow: port.door ? `0 0 0 3px ${DOOR_COLOR[port.door]}` : 'none',
-          }"
+          v-for="(port, index) in card.ports"
+          :key="card.id + '-' + index"
+          class="absolute flex size-5 items-center justify-center"
+          :class="PORT_POSITIONS[index]"
         >
-          <span class="text-[10px] font-bold text-white">{{ index }}</span>
-          <span
-            v-if="card.gold?.[port.group] || port.isTroll || port.door"
-            class="text-[7px] font-semibold text-white"
+          <div
+            v-if="port"
+            :key="`${card.id}-${index}-g${port.group}`"
+            class="flex size-5 flex-col items-center justify-center rounded-sm leading-none"
+            :class="portGroupClass(port.group)"
+            :style="{
+              border: port.isRat ? '1px dashed black' : 'none',
+              boxShadow: port.door ? `0 0 0 3px ${DOOR_COLOR[port.door]}` : 'none',
+            }"
           >
-            {{ card.gold?.[port.group] ? 'G' : '' }}{{ port.isTroll ? 'T' : '' }}{{ port.door ? 'D' : '' }}
-          </span>
+            <span class="text-[10px] font-bold text-white">{{ index }}</span>
+            <span
+              v-if="card.gold?.[port.group] || port.isRat || port.door"
+              class="text-[7px] font-semibold text-white"
+            >
+              {{ card.gold?.[port.group] ? 'G' : '' }}{{ port.isRat ? 'R' : '' }}{{ port.door ? 'D' : '' }}
+            </span>
+          </div>
         </div>
-      </div>
-    </template>
+      </template>
+    </div>
+    <img
+      v-if="card.style.ratSvg && ratOverlayClass"
+      :src="`/cards/${card.style.ratSvg}`"
+      alt=""
+      class="pointer-events-none absolute z-10 max-w-none object-contain"
+      :class="ratOverlayClass"
+    >
   </div>
 </template>

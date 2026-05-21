@@ -5,7 +5,7 @@ import type { PlayerColor } from './player'
 export interface ICardPort {
   group: number
 
-  isTroll?: boolean
+  isRat?: boolean
   door?: PlayerColor
 }
 
@@ -24,6 +24,7 @@ export interface ICardBaseStyle {
   svg?: string
   goldSvg?: string
   doorSvg?: string
+  ratSvg?: string
 }
 
 export enum CardAction {

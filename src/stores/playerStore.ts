@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
 
 import type { IPlayer } from '@/types'
+import type { PlayerColor } from '@/types/player'
 
 function createInitialDuelPlayers(): IPlayer[] {
   return [
@@ -10,12 +11,21 @@ function createInitialDuelPlayers(): IPlayer[] {
   ]
 }
 
+const PLAYER_COLOR_MAP: Record<string, PlayerColor> = {
+  player1: 2,
+  player2: 1,
+}
+
 export const usePlayerStore = defineStore('player', () => {
   const players = ref<IPlayer[]>(createInitialDuelPlayers())
   const currentPlayerId = ref<IPlayer['id']>('player1')
 
   const currentPlayer = computed(() =>
     players.value.find(player => player.id === currentPlayerId.value)
+  )
+
+  const currentPlayerColor = computed<PlayerColor>(
+    () => PLAYER_COLOR_MAP[currentPlayerId.value] ?? 1
   )
 
   function addGold(playerId: string, amount: number) {
@@ -29,5 +39,5 @@ export const usePlayerStore = defineStore('player', () => {
   }
 
 
-  return { players, currentPlayerId, currentPlayer, setGold, addGold }
+  return { players, currentPlayerId, currentPlayer, currentPlayerColor, setGold, addGold }
 })

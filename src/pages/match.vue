@@ -5,11 +5,16 @@ import BoardGrid from '../components/board/BoardGrid.vue'
 import CardHand from '../components/cards/CardHand.vue'
 import ShadowCard from '../components/cards/ShadowCard.vue'
 import PlayerHand from '../components/features/match/control-panel/PlayerHand.vue'
+import { computed } from 'vue'
 import { useCardStore } from '../stores/cardStore'
 import { usePlayerStore } from '../stores/playerStore'
 
 const cardStore = useCardStore()
 const { currentPlayerId: playerId } = storeToRefs(usePlayerStore())
+
+const playerCards = computed(() =>
+  Array.from(cardStore.cards.values())
+)
 </script>
 
 <template>
@@ -27,14 +32,8 @@ const { currentPlayerId: playerId } = storeToRefs(usePlayerStore())
         <BoardGrid class="shrink-0" />
       </div>
       <div class="flex w-full flex-col gap-y-4">
-        <button
-          class="rounded-md bg-blue-500 px-4 py-2 text-white"
-          @click="cardStore.getRandomCard(playerId)"
-        >
-          Get card
-        </button>
-
         <CardHand
+          :player-cards="playerCards"
           :player-id="playerId"
           class="min-w-0 lg:flex-1"
         />
