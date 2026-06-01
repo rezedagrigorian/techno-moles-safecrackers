@@ -1,20 +1,18 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+// import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useCardStore } from '@/stores/cardStore'
 import { CardStatus } from '@/types/card'
 import Card from './Card.vue'
+import type { ICard } from '@/types'
 
-const props = defineProps<{
+defineProps<{
   playerId: string
+  playerCards: ICard[]
 }>()
 
 const cardStore = useCardStore()
-const { selectedCardId, cards } = storeToRefs(cardStore)
-
-const playerCards = computed(() =>
-  Array.from(cards.value.values()).filter(card =>  card.owner === props.playerId)
-)
+const { selectedCardId } = storeToRefs(cardStore)
 
 function handleCardClick(cardId: string) {
   if (selectedCardId.value === cardId) {

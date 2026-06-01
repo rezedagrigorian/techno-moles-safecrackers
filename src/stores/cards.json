@@ -9,7 +9,23 @@
     ],
     "action": null,
     "isGolden": false,
-    "style": {}
+    "style": {
+      "svg": "entrance-lavander.svg"
+    }
+  },
+  {
+    "id": "63782181-d535-470e-90b2-44913a553333",
+    "ports": [
+      { "group": 1 },
+      { "group": 1 },
+      { "group": 1 },
+      { "group": 1 }
+    ],
+    "action": null,
+    "isGolden": false,
+    "style": {
+      "svg": "entrance-yellow.svg"
+    }
   },
   {
     "id": "337a33146-0a31-489a-80a5-97105743058f",
@@ -524,12 +540,274 @@
       { "group": 1 },
       { "group": 1 },
       { "group": 1 },
-      { "group": 1, "isTroll": true }
+      { "group": 1, "isRat": true }
     ],
     "action": null,
     "isGolden": false,
     "style": {
-      "svg": "card-34.svg"
+      "svg": "card-34.svg",
+      "ratSvg": "characters/icons/rat.svg"
+    }
+  },
+  {
+    "id": "337a33146-0a31-489a-80a5-971057430608",
+    "ports": [
+      { "group": 1 },
+      { "group": 2 },
+      { "group": 1 },
+      { "group": 2 }
+    ],
+    "action": null,
+    "isGolden": false,
+    "style": {
+      "svg": "card-35.svg"
+    }
+  },
+  {
+    "id": "337a33146-0a31-489a-80a5-971057430609",
+    "ports": [
+      { "group": 1 },
+      { "group": 2 },
+      { "group": 1 },
+      { "group": 1 }
+    ],
+    "gold": { "2": 1 },
+    "action": null,
+    "isGolden": false,
+    "style": {
+      "svg": "card-36.svg",
+      "goldSvg": "gold/card-36-gold.svg"
+    }
+  },
+  {
+    "id": "337a33146-0a31-489a-80a5-971057430610",
+    "ports": [
+      { "group": 1 },
+      { "group": 1, "door": 1 },
+      { "group": 1 },
+      null
+    ],
+    "action": null,
+    "isGolden": false,
+    "style": {
+      "svg": "card-37.svg",
+      "doorSvg": "doors/card-37-door.svg"
+    }
+  },
+  {
+    "id": "337a33146-0a31-489a-80a5-971057430611",
+    "ports": [
+      { "group": 1 },
+      null,
+      null,
+      { "group": 1 }
+    ],
+    "action": null,
+    "isGolden": false,
+    "style": {
+      "svg": "card-38.svg"
+    }
+  },
+  {
+    "id": "337a33146-0a31-489a-80a5-971057430612",
+    "ports": [
+      { "group": 1 },
+      { "group": 1 },
+      null,
+      { "group": 1, "isRat": true }
+    ],
+    "action": null,
+    "isGolden": false,
+    "style": {
+      "svg": "card-39.svg",
+      "ratSvg": "characters/icons/rat.svg"
+    }
+  },
+  {
+    "id": "337a33146-0a31-489a-80a5-971057430613",
+    "ports": [
+      { "group": 1 },
+      { "group": 1 },
+      { "group": 1 },
+      { "group": 1, "door": 2 }
+    ],
+    "action": null,
+    "isGolden": false,
+    "style": {
+      "svg": "card-40.svg",
+      "doorSvg": "doors/card-40-door-violet.svg"
+    }
+  },
+  {
+    "id": "337a33146-0a31-489a-80a5-971057430614",
+    "ports": [
+      null,
+      { "group": 1 },
+      { "group": 2 },
+      { "group": 1 }
+    ],
+    "action": null,
+    "isGolden": false,
+    "style": {
+      "svg": "card-41.svg"
+    }
+  },
+  {
+    "id": "337a33146-0a31-489a-80a5-971057430615",
+    "ports": [
+      { "group": 1 },
+      { "group": 2 },
+      { "group": 2 },
+      { "group": 1 }
+    ],
+    "action": null,
+    "isGolden": false,
+    "style": {
+      "svg": "card-42.svg"
+    }
+  },
+  {
+    "id": "337a33146-0a31-489a-80a5-971057430616",
+    "ports": [
+      { "group": 1 },
+      null,
+      { "group": 2 },
+      { "group": 1 }
+    ],
+    "action": null,
+    "isGolden": false,
+    "style": {
+      "svg": "card-43.svg"
+    }
+  },
+  {
+    "id": "337a33146-0a31-489a-80a5-971057430617",
+    "ports": [
+      { "group": 1 },
+      { "group": 1 },
+      { "group": 2 },
+      { "group": 1 }
+    ],
+    "action": null,
+    "gold": { "2": 1 },
+    "isGolden": false,
+    "style": {
+      "svg": "card-44.svg",
+      "goldSvg": "gold/card-44-gold.svg"
+    }
+  },
+  {
+    "id": "337a33146-0a31-489a-80a5-971057430618",
+    "ports": [
+      { "group": 1 },
+      null,
+      { "group": 1 },
+      null
+    ],
+    "action": null,
+    "isGolden": false,
+    "style": {
+      "svg": "card-45.svg"
+    }
+  },
+  {
+    "id": "337a33146-0a31-489a-80a5-971057430619",
+    "ports": [
+      null,
+      { "group": 1 },
+      { "group": 1 },
+      null
+    ],
+    "action": null,
+    "isGolden": false,
+    "style": {
+      "svg": "card-46.svg"
+    }
+  },
+  {
+    "id": "337a33146-0a31-489a-80a5-971057430620",
+    "ports": [
+      { "group": 1 },
+      { "group": 1 },
+      null,
+      null
+    ],
+    "action": null,
+    "isGolden": false,
+    "style": {
+      "svg": "card-47.svg"
+    }
+  },
+  {
+    "id": "337a33146-0a31-489a-80a5-971057430621",
+    "ports": [
+      { "group": 1 },
+      { "group": 1 },
+      null,
+      null
+    ],
+    "action": null,
+    "isGolden": false,
+    "style": {
+      "svg": "card-48.svg"
+    }
+  },
+  {
+    "id": "337a33146-0a31-489a-80a5-971057430622",
+    "ports": [
+      { "group": 1 },
+      { "group": 1 },
+      { "group": 1, "isRat": true },
+      null
+    ],
+    "action": null,
+    "isGolden": false,
+    "style": {
+      "svg": "card-49.svg",
+      "ratSvg": "characters/icons/rat.svg"
+    }
+  },
+  {
+    "id": "337a33146-0a31-489a-80a5-971057430623",
+    "ports": [
+      { "group": 1 },
+      { "group": 1 },
+      { "group": 1, "door": 2 },
+      null
+    ],
+    "action": null,
+    "isGolden": false,
+    "style": {
+      "svg": "card-50.svg",
+      "doorSvg": "doors/card-50-door-violet.svg"
+    }
+  },
+  {
+    "id": "337a33146-0a31-489a-80a5-971057430624",
+    "ports": [
+      null,
+      { "group": 1 },
+      { "group": 1 },
+      null
+    ],
+    "action": null,
+    "isGolden": false,
+    "style": {
+      "svg": "card-51.svg"
+    }
+  },
+  {
+    "id": "337a33146-0a31-489a-80a5-971057430625",
+    "ports": [
+      { "group": 1 },
+      { "group": 1 },
+      null,
+      null
+],
+    "action": null,
+    "isGolden": false,
+    "style": {
+      "svg": "card-52.svg"
     }
   }
 ]
