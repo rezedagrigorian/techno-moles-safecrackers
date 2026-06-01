@@ -5,7 +5,13 @@ import { ref } from 'vue'
 import type { ICard } from '@/types'
 import type { IGrid, IGridCell } from '@/types'
 
-import { DEFAULT_GRID_HEIGHT, DEFAULT_GRID_WIDTH, START_CARD_ID } from '@/game-core/constants'
+import { 
+  DEFAULT_GRID_HEIGHT,
+  DEFAULT_GRID_WIDTH,
+  ENTRANCE_X_OFFSET,
+  GOAL_POSITIONS,
+  LAVANDER_ENTRANCE_CARD_ID,
+  YELLOW_ENTRANCE_CARD_ID } from '@/game-core/constants'
 import { useCardStore } from './cardStore'
 import { usePlayerStore } from './playerStore'
 
@@ -48,12 +54,16 @@ function getCellIndex(x: number, y: number, width: number): number {
   return y * width + x
 }
 
-function placeStartCard(grid: IGrid): undefined {
-  const startCellIndex = getCellIndex(grid.size.width - 10, Math.floor((grid.size.height - 1) / 2), grid.size.width)
-  const startCell = grid.cells[startCellIndex]
-  if (startCell) {
-    startCell.card = START_CARD_ID
-  }
+function placeEntranceCards(grid: IGrid): void {
+  const { width, height } = grid.size
+  const x = width - ENTRANCE_X_OFFSET
+  const centerY = Math.floor(height / 2)
+
+  const lavanderCell = grid.cells[getCellIndex(x, centerY - 2, width)]
+  const yellowCell = grid.cells[getCellIndex(x, centerY, width)]
+
+  if (lavanderCell) lavanderCell.card = LAVANDER_ENTRANCE_CARD_ID
+  if (yellowCell) yellowCell.card = YELLOW_ENTRANCE_CARD_ID
 }
 
 function createGrid(width = DEFAULT_GRID_WIDTH, height = DEFAULT_GRID_HEIGHT): IGrid {
@@ -64,7 +74,7 @@ function createGrid(width = DEFAULT_GRID_WIDTH, height = DEFAULT_GRID_HEIGHT): I
     },
     cells: createGridCells(width, height),
   }
-  placeStartCard(grid)
+  placeEntranceCards(grid)
   return grid
 }
 
@@ -73,8 +83,11 @@ export const useGridStore = defineStore('grid', () => {
   const cardStore = useCardStore()
   const playerStore = usePlayerStore()
 
+  placeGoalCards()
+
   function initializeGrid(width = DEFAULT_GRID_WIDTH, height = DEFAULT_GRID_HEIGHT):void {
     grid.value = createGrid(width, height)
+    placeGoalCards()
   }
 
   function getCellById(cellId: string): IGridCell | undefined {
@@ -83,6 +96,16 @@ export const useGridStore = defineStore('grid', () => {
 
   function getCell(x: number, y: number): IGridCell | undefined {
     return grid.value.cells.find(c => c.coordinate.x === x && c.coordinate.y === y)
+  }
+
+  function placeGoalCards(): void {
+    const goalCardIds = cardStore.pickGoalCards(GOAL_POSITIONS.length)
+    goalCardIds.forEach((cardId, index) => {
+      const pos = GOAL_POSITIONS[index]
+      if (!pos) return
+      const cell = getCell(pos.x, pos.y)
+      if (cell) cell.card = cardId
+    })
   }
 
   function getNeighborCardByDirection(x: number, y: number, directionIndex: number) : ICard | undefined {
@@ -120,16 +143,19 @@ export const useGridStore = defineStore('grid', () => {
     const visited = new Set<string>()
     const countedGold = new Set<string>()
 
-    const startCardCell = grid.value.cells.find(c => c.card === START_CARD_ID)
+    const entranceCardId = playerStore.currentPlayer?.entranceCardId
+    if (!entranceCardId) return 0
 
-    const startPorts = cardStore.getPortsByCardID(START_CARD_ID)
-    if(!startCardCell) return 0
-  
+    const startCardCell = grid.value.cells.find(c => c.card === entranceCardId)
+    if (!startCardCell) return 0
+
+    const startPorts = cardStore.getPortsByCardID(entranceCardId)
+
     for(const [index, port] of startPorts.entries()) {
       if(port) {
         queue.push({
           portIndex: index,
-          cardID: START_CARD_ID,
+          cardID: entranceCardId,
           x: startCardCell.coordinate.x,
           y: startCardCell.coordinate.y,
         })
@@ -213,7 +239,7 @@ export const useGridStore = defineStore('grid', () => {
       }
       visited.add(stateKey)
 
-      if (cardID === START_CARD_ID) {
+      if (cardID === playerStore.currentPlayer?.entranceCardId) {
         return true
       }
       const neighbour = getNeighborCardByDirection(x, y, portIndex)

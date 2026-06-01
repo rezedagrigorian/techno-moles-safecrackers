@@ -14,6 +14,20 @@
     }
   },
   {
+    "id": "63782181-d535-470e-90b2-44913a553333",
+    "ports": [
+      { "group": 1 },
+      { "group": 1 },
+      { "group": 1 },
+      { "group": 1 }
+    ],
+    "action": null,
+    "isGolden": false,
+    "style": {
+      "svg": "entrance-yellow.svg"
+    }
+  },
+  {
     "id": "337a33146-0a31-489a-80a5-97105743058f",
     "ports": [
       null,

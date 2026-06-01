@@ -51,4 +51,5 @@ export interface ICard extends ICardBase {
   status: CardStatus
   owner: string | null
   rotation: ICardRotation
+  isRevealed: boolean
 }

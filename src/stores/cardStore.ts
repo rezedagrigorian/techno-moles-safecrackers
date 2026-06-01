@@ -3,15 +3,19 @@ import { ref, computed } from 'vue'
 
 import type { ICardBase, ICard, ICardPort } from '@/types'
 import { CardStatus } from '@/types/card'
-import { START_CARD_ID } from '@/game-core/constants'
+import { LAVANDER_ENTRANCE_CARD_ID, YELLOW_ENTRANCE_CARD_ID } from '@/game-core/constants'
+import { shuffle } from '@/utils/shuffle'
 import cardsJson from './cards.json'
+
+const ENTRANCE_CARD_IDS = new Set([LAVANDER_ENTRANCE_CARD_ID, YELLOW_ENTRANCE_CARD_ID])
 
 function createCard(base: ICardBase): ICard {
   return {
     ...base,
-    status: base.id === START_CARD_ID ? CardStatus.Placed : CardStatus.Deck,
+    status: ENTRANCE_CARD_IDS.has(base.id) ? CardStatus.Placed : CardStatus.Deck,
     owner: null,
     rotation: false,
+    isRevealed: false,
   }
 }
 
@@ -26,7 +30,7 @@ export const useCardStore = defineStore('cards', () => {
   const selectedCardId = ref<string | null>(null)
 
   const cardIds = computed(() => Array.from(cards.value.keys()))
-  const playableCardIds = computed(() => cardIds.value.filter(id => id !== START_CARD_ID))
+  const playableCardIds = computed(() => cardIds.value.filter(id => !ENTRANCE_CARD_IDS.has(id)))
 
   function getRandomCard(playerId: string): void {
     const deckCards = Array.from(cards.value.values()).filter(card => card.status === CardStatus.Deck)
@@ -35,6 +39,15 @@ export const useCardStore = defineStore('cards', () => {
     if (!randomCard) return
     randomCard.status = CardStatus.Hand
     randomCard.owner = playerId
+  }
+
+  function pickGoalCards(count: number): string[] {
+    const goldenCards = Array.from(cards.value.values()).filter(c => c.isGolden)
+    const picked = shuffle(goldenCards).slice(0, count)
+    picked.forEach(card => {
+      card.status = CardStatus.Placed
+    })
+    return picked.map(card => card.id)
   }
 
   function getCardById(id: string): ICard | undefined {
@@ -92,7 +105,7 @@ export const useCardStore = defineStore('cards', () => {
       return undefined
     })
   }
-  
+
   return {
     cards,
     cardIds,
@@ -106,5 +119,6 @@ export const useCardStore = defineStore('cards', () => {
     getPortsByCardID,
     getOutPortsByCardIDAndPortIndex,
     getRandomCard,
+    pickGoalCards,
   }
 })
